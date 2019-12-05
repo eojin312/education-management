@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+        <settings>
+                 <!--언더바를 CamelCase로 자동으로 매핑하는 설정 -->
+                <setting name="mapUnderscoreToCamelCase" value="true"/>
+        </settings>
+</configuration>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="school">
+    <insert id="insert"
+            parameterType="hachi.education_management.school.model.School"
+            useGeneratedKeys="true"
+            keyProperty="schoolNo">
+        INSERT INTO education_management.school
+        (
+            school_name,
+            school_nickname,
+            grade,
+            owner_type,
+            edu_type,
+            use_yn,
+            area
+        )
+        VALUES
+        (
+            #{schoolName},
+            #{schoolNickname},
+            #{grade},
+            #{ownerType},
+            #{eduType},
+            #{useYn},
+            #{area}
+        )
+    </insert>
+
+    <select id="findAll" resultType="hachi.education_management.school.model.School" parameterType="hachi.education_management.school.controller.request.SchoolSearchParameter">
+        SELECT
+        school_no,
+        school_name ,
+        school_nickname,
+        grade,
+        owner_type,
+        edu_type,
+        use_yn,
+        area
+        FROM
+        education_management.school
+        WHERE use_yn = 'y'
+        <if test="area != null">
+            AND area = #{area}
+        </if>
+        <if test="schoolName != null">
+            AND school_name LIKE CONCAT(#{schoolName}, '%')
+        </if>
+        ORDER BY school_no DESC
+
+        <if test="count != null">
+            LIMIT #{count}
+        </if>
+    </select>
+
+    <select id="selectByNo" parameterType="long" resultType="hachi.education_management.school.model.School">
+        select
+            school_no,
+            school_name,
+            school_nickname,
+            grade,
+            owner_type,
+            edu_type,
+            use_yn,
+            area
+        from
+            education_management.school
+        where
+            school_no = #{schoolNo}
+    </select>
+
+    <select id="findByNoToMap" parameterType="long" resultType="hashmap">
+        select
+            school_no,
+            school_name,
+            school_nickname,
+            grade,
+            owner_type,
+            edu_type,
+            use_yn,
+            area
+        from
+            education_management.school
+        where
+            school_no = #{schoolNo}
+    </select>
+
+    <update id="modify" parameterType="hachi.education_management.school.model.School">
+        UPDATE
+            `education_management`.`school`
+        SET
+            school_name = #{schoolName},
+            school_nickname = #{schoolNickname},
+            grade = #{grade},
+            owner_type = #{ownerType},
+            edu_type = #{eduType},
+            area = #{area}
+        WHERE
+            school_no = #{schoolNo}
+    </update>
+
+    <update id="updateToRemoved" parameterType="long">
+        update school set use_yn = 'N' where school_no = #{schoolNo}
+    </update>
+</mapper>

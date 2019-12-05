@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+<table id="myTable" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>schoolNo</th>
+        <th>schoolName</th>
+        <th>schoolNickname</th>
+        <th>학교종류</th>
+        <th>공립/사립</th>
+        <th>eduType</th>
+        <th>useYn</th>
+        <th>area</th>
+    </tr>
+    </thead>
+</table>
+
+<script src="/static/js/jquery.3.4.js"></script>
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            "ajax": '/school/list.json.datatable',
+            "columns": [
+                { "data": "schoolNo" },
+                { "data": "schoolName" },
+                { "data": "schoolNickname" },
+                { "data": "gradeName" },
+                { "data": "ownerTypeName" },
+                { "data": "eduType" },
+                { "data": "useYn" },
+                { "data": "area" }
+            ]
+        });
+    } );
+</script>
+</body>
+</html>

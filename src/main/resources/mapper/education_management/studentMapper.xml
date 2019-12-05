@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace 겹치지않게 하기-->
+<mapper namespace="student">
+
+    <insert id="insert"
+            parameterType="hachi.education_management.student.model.Student"
+            useGeneratedKeys="true"
+            keyProperty="studentNo"
+            keyColumn="studentNo"
+    >
+        insert into
+            student (
+              name
+              ,jumin_no
+              ,sex
+              )
+        values (
+         #{name}
+        ,#{juminNo}
+        ,#{sex})
+    </insert>
+
+    <select id="detail" parameterType="long" resultType="hachi.education_management.student.model.Student">
+        select
+            student_no,
+            name,
+            jumin_no,
+            sex
+        from
+            education_management.student
+        where
+        student_no = #{studentNo}
+    </select>
+
+    <select id="list" resultType="hachi.education_management.student.model.Student">
+        SELECT
+              student_no,
+              name,
+              jumin_no,
+              sex
+        from
+              student
+        ORDER BY
+              student_no
+        DESC
+    </select>
+
+    <select id="findStudentSchool" resultType="hachi.education_management.student.vo.StudentSchool">
+        SELECT
+            sc.area,
+            sc.school_name,
+            sc.school_nickname,
+            gc.year,
+            gc.grade,
+            gc.class as gradeClass,
+            st.name as studentName,
+            st.sex,
+            sgc.student_number
+        FROM
+            student st
+                INNER JOIN
+            student_grade_class sgc ON sgc.student_no = st.student_no
+                INNER JOIN
+            grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+                INNER JOIN
+            school sc ON sc.school_no = gc.school_no
+
+    </select>
+
+</mapper>

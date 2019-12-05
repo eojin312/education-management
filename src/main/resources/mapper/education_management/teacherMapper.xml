@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace 겹치지않게 하기-->
+<mapper namespace="teacher">
+
+    <insert id="add"
+            parameterType="hachi.education_management.teacher.model.Teacher"
+            useGeneratedKeys="true"
+            keyProperty="teacherNo"
+            keyColumn="teacherNo"
+            >
+        INSERT INTO
+          `education_management`.`teacher`
+           (
+                teacher_name
+                ,sex
+                ,jumin_no
+                ,subject_no
+                ,id
+                ,pwd
+                ,class_type
+                ,classroom
+           )
+        VALUES
+           (
+               #{teacherName}
+               ,#{sex}
+               ,#{juminNo}
+               ,#{subjectNo}
+               ,#{id}
+               ,#{pwd}
+               ,#{classType}
+               ,#{classroom}
+           )
+    </insert>
+
+    <select id="findByTeacherNo" parameterType="int" resultType="hachi.education_management.teacher.model.Teacher">
+        SELECT
+          teacher_no,
+          teacher_name,
+          jumin_no,
+          sex,
+          subject_no,
+          id,
+          pwd
+        FROM
+          teacher
+        WHERE
+          teacher_no = #{teacherNo}
+    </select>
+
+    <select id="findTeacherWithSubject" resultType="hachi.education_management.teacher.model.TeacherSubject">
+        SELECT
+            t.teacher_no
+            ,t.teacher_name
+            ,t.sex
+            ,t.class_type
+            ,t.classroom
+            ,s.subject_name
+            ,s.subject_no
+        FROM teacher t
+        INNER JOIN subject s ON s.subject_no = t.subject_no
+        ORDER BY teacher_no DESC
+        LIMIT 0, 1000
+    </select>
+
+    <select id="findByIdAndPwd" parameterType="map" resultType="hachi.education_management.teacher.model.Teacher">
+        SELECT
+          teacher_no,
+          teacher_name,
+          jumin_no,
+          sex,
+          subject_no,
+          id,
+          pwd
+        FROM
+          teacher
+        WHERE id = #{id}
+        AND pwd = MD5(#{pwd})
+    </select>
+</mapper>

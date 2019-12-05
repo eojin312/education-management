@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery.3.4.js"></script>
+</head>
+<body>
+<p id="followMe"> 나를 따라와 !</p>
+<ul class="myList">
+    <li><a href="https://jquery.com/">지원상황</a>
+        <ul>
+            <li><a href="CSS1">CSS1</a></li>
+            <li><a href="CSS2">CSS2</a></li>
+            <li><a href="CSS3">CSS3</a></li>
+            <li><a href="CSS3">기본 Xpath</a></li>
+        </ul>
+    </li>
+    <li>JQuery 정의 셀렉터</li>
+    <li>폼 셀렉터</li>
+</ul>
+
+<input type="button" value="학교리스트출력하기" onclick="getSchoolList()" />
+
+<div id="school-list"></div>
+
+<script type="text/javascript ">
+$(function () {
+    $("<p>안녕!</p>").insertAfter("#followMe");
+});
+
+
+var person = {
+    "name" : "이길주",
+    "id" : "kjstyle"
+};
+
+function getSchoolList() {
+    $.ajax("/school/list.json")
+        .done(function(schoolList) {
+            console.log(schoolList);
+
+            var schoolListHtml = '<table border="1">';
+            for (var i = 0; i < schoolList.length; i++) {
+                schoolListHtml += '<tr><td>'+schoolList[i].area + '</td></tr>';
+            }
+            schoolListHtml += '</table>';
+            $('#school-list').html(schoolListHtml);
+        })
+        .fail(function() {
+
+        })
+        .always(function() {
+
+        })
+    ;
+}
+</script>
+</body>
+</html>
