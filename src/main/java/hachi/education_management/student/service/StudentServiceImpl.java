@@ -2,7 +2,7 @@ package hachi.education_management.student.service;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.repository.StudentRepository;
-import hachi.education_management.teacher.exception.NoSuchTeacherException;
+import hachi.education_management.student_grade_class.vo.StudentGradeClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +21,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student detail(long studentNo) {
+    public StudentGradeClass detail(long studentNo) {
         return studentRepository.detail(studentNo);
     }
 
     @Override
-    public List<Student> list() {
-        studentRepository.list();
-        return studentRepository.list();
+    public List<StudentGradeClass> findByStudentNoWithGradeClass() {
+        return studentRepository.findByStudentNoWithGradeClass();
     }
 
     @Override

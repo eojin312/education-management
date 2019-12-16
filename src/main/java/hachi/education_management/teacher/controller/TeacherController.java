@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping(value = "/teacher")
 public class TeacherController {
 
-    public static final String VIEW = "/education_management/loginedTeacher";
+    public static final String VIEW = "/education_management/teacher";
 
     @Autowired
     private TeacherService teacherService;
@@ -39,7 +39,7 @@ public class TeacherController {
             return "/common/error";
         }
         int teacherNo = teacherService.add(teacher);
-        return "redirect:/loginedTeacher/" + teacherNo;
+        return "redirect:/" + teacherNo;
     }
 
     /**
@@ -65,5 +65,12 @@ public class TeacherController {
         List<TeacherSubject> list = teacherService.getTeacherListWithSubject();
         model.addAttribute("teacherList", list);
         return VIEW + "/list-with-subject";
+    }
+
+    @RequestMapping(value = "/list-with-subject-aggregation", method = RequestMethod.GET)
+    public String listWithSubjectAggregation(Model model) {
+        List<Teacher> list = teacherService.findTeacherListWithSubjectAggregation();
+        model.addAttribute("teacherList", list);
+        return VIEW + "/list-with-subject-aggregation";
     }
 }

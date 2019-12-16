@@ -15,4 +15,8 @@ public interface TeacherService {
     List<TeacherSubject> getTeacherListWithSubject();
 
     Teacher checkTeacherAndGet(String id, String pwd) throws NoSuchTeacherException;
+
+    List<Teacher> findTeacherListWithSubjectAggregation();
+
+    List<Teacher> findTeacherListWithSubjectAggregationEnhanced();
 }

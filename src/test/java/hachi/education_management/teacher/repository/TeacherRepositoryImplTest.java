@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -63,5 +62,12 @@ public class TeacherRepositoryImplTest {
     public void findByIdAndPwd() {
         Teacher teacher = teacherRepository.findByIdAndPwd("eojin312", "dldjwls02");
         Assert.assertEquals("이어진", teacher.getTeacherName());
+    }
+
+    @Test
+    public void findAll() {
+        List<Teacher> teacherList = teacherRepository.findAll();
+        Assert.assertTrue(teacherList.size() > 0);
+        Assert.assertTrue(teacherList.get(0) != null);
     }
 }

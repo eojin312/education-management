@@ -15,5 +15,7 @@ public interface TeacherRepository {
 
     List<TeacherSubject> findTeacherListWithSubject();
 
+    List<Teacher> findAll();
+
     Teacher findByIdAndPwd(String id, String pwd);
 }

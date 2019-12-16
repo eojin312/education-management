@@ -1,5 +1,7 @@
 package hachi.education_management.teacher.model;
 
+import hachi.education_management.subject.model.Subject;
+
 public class Teacher {
     private int teacherNo;
     private String teacherName;
@@ -11,6 +13,10 @@ public class Teacher {
     private String classType;
     private int classroom;
 
+    private Subject subject;
+
+
+
     public Teacher(int teacherNo, String teacherName, String sex, int juminNo, int subjectNo, String id, String pwd, String classType, int classroom) {
         this.teacherNo = teacherNo;
         this.teacherName = teacherName;
@@ -21,6 +27,23 @@ public class Teacher {
         this.pwd = pwd;
         this.classType = classType;
         this.classroom = classroom;
+    }
+
+    public Teacher(int teacherNo, String teacherName, String sex, int juminNo, int subjectNo, String id, String pwd, String classType, int classroom, Subject subject) {
+        this.teacherNo = teacherNo;
+        this.teacherName = teacherName;
+        this.sex = sex;
+        this.juminNo = juminNo;
+        this.subjectNo = subjectNo;
+        this.id = id;
+        this.pwd = pwd;
+        this.classType = classType;
+        this.classroom = classroom;
+        this.subject = subject;
+    }
+
+    public Subject getSubject() {
+        return subject;
     }
 
     public Teacher() {
@@ -98,6 +121,10 @@ public class Teacher {
         this.classroom = classroom;
     }
 
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
@@ -110,6 +137,7 @@ public class Teacher {
                 ", pwd='" + pwd + '\'' +
                 ", classType='" + classType + '\'' +
                 ", classroom='" + classroom + '\'' +
+                ", subject=" + subject + '\'' +
                 '}';
     }
 }

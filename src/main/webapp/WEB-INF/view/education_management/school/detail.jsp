@@ -13,10 +13,6 @@
      <br>
      ${school.schoolNickname}
      <br>
-     <%--<c:if test="${school.grade eq 'E'}">초등학교</c:if>--%>
-     <%--<c:if test="${school.grade eq 'M'}">중학교</c:if>--%>
-     <%--<c:if test="${school.grade eq 'H'}">고등학교</c:if>--%>
-
      ${school.gradeName}
      <br>
      <c:if test="${school.ownerType eq 'P'}">사립</c:if>

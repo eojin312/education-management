@@ -66,15 +66,33 @@
         LIMIT 0, 1000
     </select>
 
+    <select id="findAll" resultType="hachi.education_management.teacher.model.Teacher">
+        SELECT
+            t.teacher_no
+            ,t.teacher_name
+            ,t.sex
+            ,t.jumin_no
+            ,t.id
+            ,t.pwd
+            ,t.class_type
+            ,t.classroom
+            ,t.subject_no
+        FROM teacher t
+        ORDER BY teacher_no DESC
+        LIMIT 0, 1000
+    </select>
+
     <select id="findByIdAndPwd" parameterType="map" resultType="hachi.education_management.teacher.model.Teacher">
         SELECT
-          teacher_no,
-          teacher_name,
-          jumin_no,
-          sex,
-          subject_no,
-          id,
-          pwd
+            t.teacher_no
+            ,t.teacher_name
+            ,t.sex
+            ,t.jumin_no
+            ,t.id
+            ,t.pwd
+            ,t.class_type
+            ,t.classroom
+            ,t.subject_no
         FROM
           teacher
         WHERE id = #{id}

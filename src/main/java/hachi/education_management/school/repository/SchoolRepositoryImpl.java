@@ -32,12 +32,12 @@ public class SchoolRepositoryImpl implements SchoolRepository {
 
     @Override
     public List<School> findAll() {
-        return sqlSessionTemplate.selectList("school.getTeacherListWithSubject");
+        return sqlSessionTemplate.selectList("school.findAll");
     }
 
     @Override
     public List<School> findAll(SchoolSearchParameter schoolSearchParameter) {
-        return sqlSessionTemplate.selectList("school.getTeacherListWithSubject", schoolSearchParameter);
+        return sqlSessionTemplate.selectList("school.findAll", schoolSearchParameter);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package hachi.education_management.student.model;
 
+
 public class Student {
     private Long studentNo;
     private String name;
@@ -33,6 +34,7 @@ public class Student {
 
     public Student() {
     }
+
 
     public Long getStudentNo() {
         return studentNo;
@@ -82,7 +84,6 @@ public class Student {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-
 
     @Override
     public String toString() {

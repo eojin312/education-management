@@ -13,7 +13,7 @@
         <div class="gnb">
             <span>
                 <c:choose>
-                    <c:when test="${loginedTeacher != null || loginedStudent != null}">
+                    <c:when test="${loginedTeacher != null}">
                         ${loginedTeacher.teacherName} 선생님 안녕하세요. <a href="#" onclick="logout(); return false;">로그아웃</a>
                     </c:when>
                     <c:otherwise>
@@ -26,11 +26,11 @@
             <ul>
                 <li><a href="/student/list">학생 관리</a></li>
                 <li><a href="/school/list">학교 관리</a></li>
-                <li><a href="/teacher/list">선생님 관리</a></li>
+                <li><a href="teacher/list-with-subject">선생님 관리</a></li>
                 <li><a href="#">공지사항</a></li>
             </ul>
         </div>
-<c:if test="${loginedTeacher == null || loginedStudent == null}">
+        <c:if test="${loginedTeacher == null}">
         <form id="loginform" name="loginform" method="post" action="/login">
             <div id="login">
                 id <br> <input type="text" id="userId" name="userId"> <br>

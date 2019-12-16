@@ -32,6 +32,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
+    public List<Teacher> findAll() {
+        return sqlSessionTemplate.selectList("teacher.findAll");
+    }
+
+    @Override
     public Teacher findByIdAndPwd(String id, String pwd) {
         Map<String, Object> param = new HashMap<>();
         param.put("id", id);
