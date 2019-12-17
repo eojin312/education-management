@@ -19,15 +19,15 @@
         <th>반</th>
     </tr>
     <tr>
-        <td>${studentGradeClass.studentNo}</td>
-        <td>${studentGradeClass.name}</td>
-        <td>${studentGradeClass.juminNo}</td>
-        <td>${studentGradeClass.sex}</td>
-        <td>${studentGradeClass.id}</td>
-        <td>${studentGradeClass.schoolName}</td>
-        <td>${studentGradeClass.year}</td>
-        <td>${studentGradeClass.grade}</td>
-        <td>${studentGradeClass.gradeClass}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.studentNo}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.name}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.juminNo}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.sex}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.id}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.schoolName}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.year}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.grade}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.gradeClass}</td>
     </tr>
 </table>
 <button><a href="/student/add">학생 등록하러 가기</a></button>

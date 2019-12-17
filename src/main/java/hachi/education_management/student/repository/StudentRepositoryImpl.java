@@ -2,7 +2,8 @@ package hachi.education_management.student.repository;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.vo.StudentSchool;
-import hachi.education_management.student_grade_class.vo.StudentGradeClass;
+import hachi.education_management.grade_class.vo.GradeClass;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,10 +27,14 @@ public class StudentRepositoryImpl implements StudentRepository {
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public int insert(Student student) {
+    public int insertIntoStudent(Student student) {
         return sqlSessionTemplate.insert("student.insert", student);
     }
 
+    @Override
+    public int insertIntoGradeClass(GradeClass gradeClass) {
+        return sqlSessionTemplate.insert("insertIntoGradeClass", gradeClass);
+    }
 
     @Override
     public List<StudentSchool> findStudentSchool() {
@@ -37,13 +42,13 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public List<StudentGradeClass> findByStudentNoWithGradeClass() {
+    public List<StudentWithGradeClassForStudentDetailAndList> findByStudentNoWithGradeClass() {
         return sqlSessionTemplate.selectList("student.findByStudentNoWithGradeClass");
     }
 
 
     @Override
-    public StudentGradeClass detail(long studentNo) {
+    public StudentWithGradeClassForStudentDetailAndList detail(long studentNo) {
         return sqlSessionTemplate.selectOne("student.detail", studentNo);
     }
 

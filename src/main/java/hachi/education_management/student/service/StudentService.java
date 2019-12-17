@@ -1,17 +1,17 @@
 package hachi.education_management.student.service;
 
 import hachi.education_management.student.model.Student;
-import hachi.education_management.student_grade_class.vo.StudentGradeClass;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
 
 import java.util.List;
 
 public interface StudentService {
-    long insert(Student student);
 
-    StudentGradeClass detail(long studentNo);
+    StudentWithGradeClassForStudentDetailAndList detail(long studentNo);
 
-    List<StudentGradeClass> findByStudentNoWithGradeClass();
+    List<StudentWithGradeClassForStudentDetailAndList> findByStudentNoWithGradeClass();
 
     Student checkStudentAndGet(String id, String pwd);
 
+    long createStudent(Student student, long gradeClassNo);
 }

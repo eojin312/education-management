@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace 겹치지않게 하기-->
+<mapper namespace="gradeClass">
+
+    <insert id="insertStduentGradeClass"
+            parameterType="hashmap"
+    >
+        insert into student_grade_class (
+          student_no, grade_class_no
+        ) values (
+            #{studentNo}
+            ,#{gradeClassNo}
+        )
+    </insert>
+</mapper>

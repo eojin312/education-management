@@ -2,7 +2,8 @@ package hachi.education_management.student.controller;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.service.StudentService;
-import hachi.education_management.student_grade_class.vo.StudentGradeClass;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
+import hachi.education_management.student.ws.request.StudentCreateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +26,21 @@ public class StudentController {
 
     /**
      * 학생 등록 처리
-     * @param student
+     * @param studentCreateDto
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute Student student){
-        long studentNo = studentService.insert(student);
+    public String add(@ModelAttribute StudentCreateDto studentCreateDto) {
 
+        Student student = new Student(
+                studentCreateDto.getName()
+                , studentCreateDto.getJuminNo()
+                , studentCreateDto.getSex()
+                , studentCreateDto.getId()
+                , studentCreateDto.getPwd()
+        );
+
+        final long studentNo = studentService.createStudent(student, studentCreateDto.getGradeClassNo());
         return "redirect:/student/" + studentNo;
     }
 
@@ -51,7 +60,7 @@ public class StudentController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-        List<StudentGradeClass> studentList = studentService.findByStudentNoWithGradeClass();
+        List<StudentWithGradeClassForStudentDetailAndList> studentList = studentService.findByStudentNoWithGradeClass();
         model.addAttribute("studentList", studentList);
         return VIEW + "/list";
     }
@@ -64,8 +73,8 @@ public class StudentController {
      */
     @RequestMapping(value = "/{studentNo}", method = RequestMethod.GET)
     public String studentDetail(Model model, @PathVariable long studentNo) {
-        StudentGradeClass studentGradeClass = studentService.detail(studentNo);
-        model.addAttribute("studentGradeClass", studentGradeClass);
+        StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
+        model.addAttribute("studentGradeClass", studentWithGradeClassForStudentDetailAndList);
         return VIEW + "/detail";
     }
 }

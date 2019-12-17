@@ -11,20 +11,23 @@
             keyProperty="studentNo"
             keyColumn="studentNo"
     >
-        insert into
-            student (
-              name
-              ,jumin_no
-              ,sex
-              )
-        values (
-         #{name}
-        ,#{juminNo}
-        ,#{sex})
+        insert into student (
+            name
+            ,jumin_no
+            ,sex
+            ,id
+            ,pwd
+        ) values (
+            #{name}
+            ,#{juminNo}
+            ,#{sex}
+            ,#{id}
+            ,md5(#{pwd})
+         )
     </insert>
 
     <select id="detail" parameterType="long"
-            resultType="hachi.education_management.student_grade_class.vo.StudentGradeClass">
+            resultType="hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList">
         SELECT
           s.student_no
           ,s.name
@@ -47,7 +50,7 @@
     </select>
 
     <select id="findByStudentNoWithGradeClass"
-            resultType="hachi.education_management.student_grade_class.vo.StudentGradeClass">
+            resultType="hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList">
         SELECT
           s.student_no
           ,s.name

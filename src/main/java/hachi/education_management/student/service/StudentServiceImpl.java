@@ -1,10 +1,12 @@
 package hachi.education_management.student.service;
 
+import hachi.education_management.grade_class.repository.StudentGradeClassRepository;
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.repository.StudentRepository;
-import hachi.education_management.student_grade_class.vo.StudentGradeClass;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,19 +16,17 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Override
-    public long insert(Student student) {
-        studentRepository.insert(student);
-        return student.getStudentNo();
-    }
+    @Autowired
+    private StudentGradeClassRepository stduentGradeClassRepository;
+
 
     @Override
-    public StudentGradeClass detail(long studentNo) {
+    public StudentWithGradeClassForStudentDetailAndList detail(long studentNo) {
         return studentRepository.detail(studentNo);
     }
 
     @Override
-    public List<StudentGradeClass> findByStudentNoWithGradeClass() {
+    public List<StudentWithGradeClassForStudentDetailAndList> findByStudentNoWithGradeClass() {
         return studentRepository.findByStudentNoWithGradeClass();
     }
 
@@ -34,5 +34,14 @@ public class StudentServiceImpl implements StudentService {
     public Student checkStudentAndGet(String id, String pwd) {
         Student student = studentRepository.findByIdAndPwd(id, pwd);
         return student ;
+    }
+
+    @Override
+    @Transactional
+    public long createStudent(Student student, long gradeClassNo) {
+        studentRepository.insertIntoStudent(student);
+        final long studentNo = student.getStudentNo();
+        stduentGradeClassRepository.insert(studentNo, gradeClassNo);
+        return studentNo;
     }
 }

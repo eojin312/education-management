@@ -32,6 +32,14 @@ public class Student {
         this.pwd = pwd;
     }
 
+    public Student(String name, String juminNo, String sex, String id, String pwd) {
+        this.name = name;
+        this.juminNo = juminNo;
+        this.sex = sex;
+        this.id = id;
+        this.pwd = pwd;
+    }
+
     public Student() {
     }
 

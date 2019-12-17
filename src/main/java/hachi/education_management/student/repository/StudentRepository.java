@@ -2,19 +2,17 @@ package hachi.education_management.student.repository;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.vo.StudentSchool;
-import hachi.education_management.student_grade_class.vo.StudentGradeClass;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
 
 import java.util.List;
 
 public interface StudentRepository {
-    int insert(Student student);
-
-
+    int insertIntoStudent(Student student);
     List<StudentSchool> findStudentSchool();
 
-    List<StudentGradeClass> findByStudentNoWithGradeClass();
+    List<StudentWithGradeClassForStudentDetailAndList> findByStudentNoWithGradeClass();
 
-    StudentGradeClass detail(long studentNo);
+    StudentWithGradeClassForStudentDetailAndList detail(long studentNo);
 
     Student findByIdAndPwd(String id, String pwd);
 

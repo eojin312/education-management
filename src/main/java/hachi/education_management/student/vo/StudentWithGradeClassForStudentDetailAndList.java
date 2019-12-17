@@ -1,4 +1,4 @@
-package hachi.education_management.student_grade_class.vo;
+package hachi.education_management.student.vo;
 
 /**
  * 학년 반의 데이터를 담기 위한 VO
@@ -6,7 +6,7 @@ package hachi.education_management.student_grade_class.vo;
  * ERD 다이어그램을 통해서 전면 수정한 후 만들었다.
  */
 
-public class StudentGradeClass {
+public class StudentWithGradeClassForStudentDetailAndList {
     private Long studentNo;
     private String name;
     private String juminNo;
@@ -112,7 +112,7 @@ public class StudentGradeClass {
 
     @Override
     public String toString() {
-        return "StudentGradeClass{" +
+        return "StudentWithGradeClassForStudentDetailAndList{" +
                 "studentNo=" + studentNo +
                 ", name='" + name + '\'' +
                 ", juminNo='" + juminNo + '\'' +

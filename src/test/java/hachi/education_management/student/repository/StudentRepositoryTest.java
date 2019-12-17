@@ -22,11 +22,12 @@ public class StudentRepositoryTest {
     @Test
     public void insertTest() {
         String name = UUID.randomUUID().toString().substring(0,10);
+        String id = UUID.randomUUID().toString().substring(0, 10);
         String juminNo = UUID.randomUUID().toString().substring(0,10);
         String sex = "M";
-        Student mockStudent = new Student(name, juminNo, sex);
+        Student mockStudent = new Student(name, juminNo, sex, id, "1234");
 
-        int lastInsertedStudentNo = studentRepository.insert(mockStudent);
+        int lastInsertedStudentNo = studentRepository.insertIntoStudent(mockStudent);
         System.out.println(lastInsertedStudentNo);
 
         Assert.assertTrue(lastInsertedStudentNo == 1);
