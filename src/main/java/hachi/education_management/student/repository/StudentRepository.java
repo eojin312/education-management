@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface StudentRepository {
     int insertIntoStudent(Student student);
+
     List<StudentSchool> findStudentSchool();
 
     List<StudentWithGradeClassForStudentDetailAndList> findByStudentNoWithGradeClass();

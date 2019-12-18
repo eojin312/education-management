@@ -32,11 +32,6 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public int insertIntoGradeClass(GradeClass gradeClass) {
-        return sqlSessionTemplate.insert("insertIntoGradeClass", gradeClass);
-    }
-
-    @Override
     public List<StudentSchool> findStudentSchool() {
         return sqlSessionTemplate.selectList("student.findStudentSchool");
     }
