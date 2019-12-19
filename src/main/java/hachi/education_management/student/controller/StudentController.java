@@ -74,7 +74,7 @@ public class StudentController {
     @RequestMapping(value = "/{studentNo}", method = RequestMethod.GET)
     public String studentDetail(Model model, @PathVariable long studentNo) {
         StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
-        model.addAttribute("studentGradeClass", studentWithGradeClassForStudentDetailAndList);
+        model.addAttribute("studentWithGradeClassForStudentDetailAndList", studentWithGradeClassForStudentDetailAndList);
         return VIEW + "/detail";
     }
 }

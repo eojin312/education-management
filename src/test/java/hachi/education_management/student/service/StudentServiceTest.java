@@ -32,7 +32,7 @@ public class StudentServiceTest {
         String sex = "M";
         Student mockStudent = new Student(name, juminNo, sex, id, "1234");
 
-        long studentNo = studentService.createStudent(mockStudent, 2L);
+        long studentNo = studentService.createStudent(mockStudent, 3L);
 
         Assert.assertTrue(studentNo > 0);
         System.out.println(studentNo);

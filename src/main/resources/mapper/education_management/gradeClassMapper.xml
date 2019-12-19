@@ -8,11 +8,15 @@
     <insert id="insertStduentGradeClass"
             parameterType="hashmap"
     >
-        insert into student_grade_class (
-          student_no, grade_class_no
-        ) values (
-            #{studentNo}
-            ,#{gradeClassNo}
-        )
+        INSERT INTO student_grade_class
+            (
+              student_no
+              ,grade_class_no
+            )
+        VALUES
+            (
+              #{studentNo}
+             ,#{gradeClassNo}
+            )
     </insert>
 </mapper>
