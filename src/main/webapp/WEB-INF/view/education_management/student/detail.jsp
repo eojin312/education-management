@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<table>
+<table border="1" bgcolor="#ffdead">
     <tr>
         <th>학생번호</th>
         <th>학생 이름</th>

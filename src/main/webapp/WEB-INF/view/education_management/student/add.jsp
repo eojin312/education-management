@@ -13,13 +13,15 @@
         id : <input name="id" type="text"> <br>
         pwd : <input name="pwd" type="password"> <br>
         <div>
-            반 : 1반<input name="gradeClassNo" type="radio" value="1">
-            2반<input name="gradeClassNo" type="radio" value="2">
-            3반<input name="gradeClassNo" type="radio" value="3">
-            4반<input name="gradeClassNo" type="radio" value="4">
-            5반<input name="gradeClassNo" type="radio" value="5">
-            <input type="submit" value="등록">
+            <select name="gradeClassNo">
+                <option value="1">1-1</option>
+                <option value="2">1-2</option>
+                <option value="3">1-3</option>
+                <option value="4">1-4</option>
+                <option value="5">1-5</option>
+            </select>
         </div>
+        <input type="submit" value="등록">
     </form>
 </div>
 <a href="/home">홈으로가기</a>

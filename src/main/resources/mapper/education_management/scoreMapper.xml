@@ -23,5 +23,6 @@
       INNER JOIN student s on s.student_no = sc.student_no
       INNER JOIN grade_class gc on gc.grade_class_no = sc.grade_class_no
       INNER JOIN subject sub on sub.subject_no = sc.subject_no
+      ORDER BY student_no desc
     </select>
 </mapper>

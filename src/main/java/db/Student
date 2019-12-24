@@ -1,0 +1,29 @@
+
+
+
+
+        SELECT
+          s.student_no
+          ,s.name
+          ,s.jumin_no
+          ,s.sex
+          ,s.id
+          ,gc.school_no
+          ,sc.school_name
+          ,gc.year
+          ,gc.grade
+          ,gc.grade_class
+          ,gc.grade_class_no
+        FROM
+          student s
+		INNER JOIN student_grade_class sgc ON s.student_no = sgc.student_no
+        INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+        INNER JOIN school sc on sc.school_no = gc.school_no
+        ORDER BY student_no desc;
+
+
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's on sgc.grade_no = sc.grade_no         INNER JOIN grade_class gc on gc.grade_no' at line 15	0.0027 sec
+
+
+
+

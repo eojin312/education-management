@@ -19,4 +19,5 @@
              ,#{gradeClassNo}
             )
     </insert>
+
 </mapper>
