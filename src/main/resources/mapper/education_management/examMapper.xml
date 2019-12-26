@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace 겹치지않게 하기-->
+<mapper namespace="exam">
+
+    <select id="findByExamNoWithStudentNo" resultType="hachi.education_management.exam.vo.ExamStudentApply">
+    SELECT
+      t.teacher_no
+      ,s.student_no
+      ,esa.exam_student_apply_no
+      ,e.exam_no
+      ,s.name
+      ,e.year
+      ,e.grade
+      ,e.semester
+      ,e.exam_type
+      ,esa.create_date
+      ,t.teacher_name
+      ,esa.update_date
+    FROM exam_student_apply esa
+    INNER JOIN exam e on e.exam_no = esa.exam_no
+    INNER JOIN student s on s.student_no = esa.student_no
+    INNER JOIN teacher t on t.teacher_no = esa.create_teacher_no;
+
+    </select>
+</mapper>
