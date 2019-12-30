@@ -104,4 +104,19 @@
     <update id="updateToRemoved" parameterType="long">
         update school set use_yn = 'N' where school_no = #{schoolNo}
     </update>
+
+    <select id="selectByGradeClassWithSchool" resultType="hachi.education_management.school.vo.GradeClassWithSchool"
+            parameterType="long">
+        SELECT
+            s.school_no
+            ,s.school_name
+            ,gc.grade_class_no
+            ,gc.year
+            ,gc.grade
+            ,gc.grade_class
+        FROM school  s
+        INNER JOIN grade_class gc ON gc.school_no = s.school_no
+        WHERE
+            gc.year = 2019 AND s.school_no = #{schoolNo}
+    </select>
 </mapper>

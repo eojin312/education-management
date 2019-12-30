@@ -5,7 +5,8 @@
 <!--mapper namespace 겹치지않게 하기-->
 <mapper namespace="exam">
 
-    <select id="findByExamNoWithStudentNo" resultType="hachi.education_management.exam.vo.ExamStudentApply">
+    <select id="findByExamNoWithStudentNo" resultType="hachi.education_management.exam.vo.ExamStudentApply"
+            parameterType="long">
     SELECT
       t.teacher_no
       ,s.student_no
@@ -22,7 +23,8 @@
     FROM exam_student_apply esa
     INNER JOIN exam e on e.exam_no = esa.exam_no
     INNER JOIN student s on s.student_no = esa.student_no
-    INNER JOIN teacher t on t.teacher_no = esa.create_teacher_no;
-
+    INNER JOIN teacher t on t.teacher_no = esa.create_teacher_no
+    WHERE s.student_no = #{studentNo}
+    limit 0, 100
     </select>
 </mapper>
