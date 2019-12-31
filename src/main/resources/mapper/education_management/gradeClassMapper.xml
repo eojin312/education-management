@@ -20,4 +20,27 @@
             )
     </insert>
 
+    <select id="selectByGradeClassWithSchoolNo" resultType="hachi.education_management.grade_class.vo"
+            parameterType="long">
+        SELECT
+          sgc.student_grade_class_no
+          ,gc.grade_class_no
+          ,gc.grade
+          ,gc.grade_class
+          ,s.student_no
+          ,s.name
+          ,s.sex
+          ,sc.school_no
+          ,sc.school_name
+        FROM
+          student_grade_class sgc
+        INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+        INNER JOIN student s ON s.student_no = sgc.student_no
+        INNER JOIN school sc ON sc.school_no = gc.school_no
+        WHERE
+         gc.year = 2019
+        AND sgc.grade_class_no = #{gradeClassNo}
+        AND gc.school_no = #{schoolNo}
+    </select>
+
 </mapper>
