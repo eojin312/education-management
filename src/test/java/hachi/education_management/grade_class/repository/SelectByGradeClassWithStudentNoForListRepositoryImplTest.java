@@ -1,6 +1,6 @@
 package hachi.education_management.grade_class.repository;
 
-import hachi.education_management.grade_class.vo.GradeClassWithSchool;
+import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
@@ -22,8 +20,8 @@ public class SelectByGradeClassWithStudentNoForListRepositoryImplTest {
 
     @Test
     public void selectByGradeClassWithSchoolNo() {
-        List<GradeClassWithSchool> gradeClassWithSchools = selectByGradeClassWithStudentNoForListRepository.selectByGradeClassWithSchoolNo(1, 1);
-        System.out.println(gradeClassWithSchools);
-        Assert.assertTrue(gradeClassWithSchools.size() > 0);
+        List<GradeClassWithStudent> gradeClassWithStudents = selectByGradeClassWithStudentNoForListRepository.selectByGradeClassWithSchoolNo(1, 1);
+        System.out.println(gradeClassWithStudents);
+        Assert.assertTrue(gradeClassWithStudents.size() > 0);
     }
 }

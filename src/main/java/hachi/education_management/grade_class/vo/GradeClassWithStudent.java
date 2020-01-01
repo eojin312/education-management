@@ -1,6 +1,6 @@
 package hachi.education_management.grade_class.vo;
 
-public class GradeClassWithSchool {
+public class GradeClassWithStudent {
     int studentGradeClassNo;
     int gradeClassNo;
     int grade;
@@ -86,7 +86,7 @@ public class GradeClassWithSchool {
 
     @Override
     public String toString() {
-        return "GradeClassWithSchool{" +
+        return "GradeClassWithStudent{" +
                 "studentGradeClassNo=" + studentGradeClassNo +
                 ", gradeClassNo=" + gradeClassNo +
                 ", grade=" + grade +

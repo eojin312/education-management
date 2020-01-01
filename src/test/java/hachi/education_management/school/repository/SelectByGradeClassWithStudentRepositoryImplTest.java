@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
-public class SelectByGradeClassWithSchoolRepositoryImplTest {
+public class SelectByGradeClassWithStudentRepositoryImplTest {
 
     @Autowired
     private SelectByGradeClassWithSchoolRepository selectByGradeClassWithSchoolRepository;

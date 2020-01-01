@@ -59,7 +59,7 @@ public class GradeClassWithSchool {
 
     @Override
     public String toString() {
-        return "GradeClassWithSchool{" +
+        return "GradeClassWithStudent{" +
                 "SchoolNo=" + SchoolNo +
                 ", schoolName='" + schoolName + '\'' +
                 ", gradeClassNo=" + gradeClassNo +

@@ -21,7 +21,7 @@
     </insert>
 
     <select id="selectByGradeClassWithStudentNoForList"
-            resultType="hachi.education_management.grade_class.vo.GradeClassWithSchool"
+            resultType="hachi.education_management.grade_class.vo.GradeClassWithStudent"
             parameterType="long">
         SELECT
           sgc.student_grade_class_no
