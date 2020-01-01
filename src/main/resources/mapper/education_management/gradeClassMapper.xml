@@ -20,7 +20,8 @@
             )
     </insert>
 
-    <select id="selectByGradeClassWithSchoolNo" resultType="hachi.education_management.grade_class.vo"
+    <select id="selectByGradeClassWithStudentNoForList"
+            resultType="hachi.education_management.grade_class.vo.GradeClassWithSchool"
             parameterType="long">
         SELECT
           sgc.student_grade_class_no
