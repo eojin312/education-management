@@ -4,6 +4,7 @@ package hachi.education_management.school.service;
 import hachi.education_management.school.controller.request.SchoolSearchParameter;
 import hachi.education_management.school.repository.SchoolRepository;
 import hachi.education_management.school.model.School;
+import hachi.education_management.school.vo.GradeClassWithSchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,5 +71,10 @@ public class SchoolServiceImpl implements SchoolService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
+        return schoolRepository.selectByGradeClassWithSchool(schoolNo);
     }
 }

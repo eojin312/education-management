@@ -4,6 +4,6 @@ import hachi.education_management.school.vo.GradeClassWithSchool;
 
 import java.util.List;
 
-public interface SelectByGradeClassWithSchoolRepository {
+public interface SchoolDetailWithGradeClassRepository {
     List<GradeClassWithSchool> selectByGradeClassWithSchool(long schoolNo);
 }

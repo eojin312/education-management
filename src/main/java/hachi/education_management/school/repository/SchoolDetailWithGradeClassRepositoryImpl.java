@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public class SelectByGradeClassWithSchoolRepositoryImpl implements SelectByGradeClassWithSchoolRepository {
+public class SchoolDetailWithGradeClassRepositoryImpl implements SchoolDetailWithGradeClassRepository {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;

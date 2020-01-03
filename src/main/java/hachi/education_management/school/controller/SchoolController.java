@@ -134,4 +134,10 @@ SchoolController {
         }
         return new ProcessResponse(true, "");
     }
+
+    @RequestMapping(value = "/{schoolNo}", method = RequestMethod.GET)
+    public String findByGradeClass(@PathVariable long schoolNo, Model model) {
+        model.addAttribute("school", schoolService.findByGradeClass(schoolNo));
+        return VIEW_DIR_PATH + "/school-list";
+    }
 }

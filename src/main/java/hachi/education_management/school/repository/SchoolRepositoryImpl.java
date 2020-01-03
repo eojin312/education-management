@@ -2,6 +2,7 @@ package hachi.education_management.school.repository;
 
 import hachi.education_management.school.controller.request.SchoolSearchParameter;
 import hachi.education_management.school.model.School;
+import hachi.education_management.school.vo.GradeClassWithSchool;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,6 +54,11 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     @Override
     public int updateToRemoved(long schoolNo) {
         return sqlSessionTemplate.update("school.updateToRemoved", schoolNo);
+    }
+
+    @Override
+    public List<GradeClassWithSchool> selectByGradeClassWithSchool(long schoolNo) {
+        return sqlSessionTemplate.selectList("school.selectByGradeClassWithSchool", schoolNo);
     }
 
 
