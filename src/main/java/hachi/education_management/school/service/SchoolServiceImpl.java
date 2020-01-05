@@ -1,6 +1,7 @@
 package hachi.education_management.school.service;
 
 
+import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import hachi.education_management.school.controller.request.SchoolSearchParameter;
 import hachi.education_management.school.repository.SchoolRepository;
 import hachi.education_management.school.model.School;
@@ -75,5 +76,10 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
         return schoolRepository.selectByGradeClassWithSchool(schoolNo);
+    }
+
+    @Override
+    public List<GradeClassWithStudent> findGradeClassByGradeClassNoAndSchoolNo(int gradeClassNo) {
+        return schoolRepository.findStudentByGradeClassAndSchoolNo(gradeClassNo);
     }
 }

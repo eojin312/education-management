@@ -1,26 +1,26 @@
 package hachi.education_management.grade_class.vo;
 
 public class GradeClassWithStudent {
-    int studentGradeClassNo;
-    int gradeClassNo;
-    int grade;
-    int gradeClass;
-    long studentNo;
-    String name;
-    String sex;
-    int schoolNo;
-    String schoolName;
+    private long studentGradeClassNo;
+    private int gradeClassNo;
+    private long studentNo;
+    private long schoolNo;
+    private String name;
+    private String sex;
+    private String schoolName;
+    private int grade;
+    private int gradeClass;
+    private int studentClassNumber;
 
-
-    public int getStudentGradeClassNo() {
+    public long getStudentGradeClassNo() {
         return studentGradeClassNo;
     }
 
-    public void setStudentGradeClassNo(int studentGradeClassNo) {
+    public void setStudentGradeClassNo(long studentGradeClassNo) {
         this.studentGradeClassNo = studentGradeClassNo;
     }
 
-    public int getGradeClassNo() {
+    public long getGradeClassNo() {
         return gradeClassNo;
     }
 
@@ -28,28 +28,20 @@ public class GradeClassWithStudent {
         this.gradeClassNo = gradeClassNo;
     }
 
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public int getGradeClass() {
-        return gradeClass;
-    }
-
-    public void setGradeClass(int gradeClass) {
-        this.gradeClass = gradeClass;
-    }
-
     public long getStudentNo() {
         return studentNo;
     }
 
-    public void setStudentNo(int studentNo) {
+    public void setStudentNo(long studentNo) {
         this.studentNo = studentNo;
+    }
+
+    public long getSchoolNo() {
+        return schoolNo;
+    }
+
+    public void setSchoolNo(long schoolNo) {
+        this.schoolNo = schoolNo;
     }
 
     public String getName() {
@@ -68,14 +60,6 @@ public class GradeClassWithStudent {
         this.sex = sex;
     }
 
-    public long getSchoolNo() {
-        return schoolNo;
-    }
-
-    public void setSchoolNo(int schoolNo) {
-        this.schoolNo = schoolNo;
-    }
-
     public String getSchoolName() {
         return schoolName;
     }
@@ -84,18 +68,27 @@ public class GradeClassWithStudent {
         this.schoolName = schoolName;
     }
 
-    @Override
-    public String toString() {
-        return "GradeClassWithStudent{" +
-                "studentGradeClassNo=" + studentGradeClassNo +
-                ", gradeClassNo=" + gradeClassNo +
-                ", grade=" + grade +
-                ", gradeClass=" + gradeClass +
-                ", studentNo=" + studentNo +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", schoolNo=" + schoolNo +
-                ", schoolName='" + schoolName + '\'' +
-                '}';
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getGradeClass() {
+        return gradeClass;
+    }
+
+    public void setGradeClass(int gradeClass) {
+        this.gradeClass = gradeClass;
+    }
+
+    public int getStudentClassNumber() {
+        return studentClassNumber;
+    }
+
+    public void setStudentClassNumber(int studentClassNumber) {
+        this.studentClassNumber = studentClassNumber;
     }
 }

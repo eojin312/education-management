@@ -1,5 +1,6 @@
 package hachi.education_management.school;
 
+import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import hachi.education_management.school.repository.SchoolRepository;
 import hachi.education_management.school.model.School;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -51,6 +53,14 @@ public class SchoolRepositoryTest {
 
         Assert.assertTrue(insertedCount == 1);
         Assert.assertTrue(mockSchool.getSchoolNo() > 1);
+    }
+
+    @Test
+    public void 반일련번호로_해당반의_학생리스트를_가지고온다() {
+        List<GradeClassWithStudent> gradeClassWithStudentList = schoolRepository.findStudentByGradeClassAndSchoolNo(1);
+        Assert.assertTrue(gradeClassWithStudentList.size() >= 1);
+        Assert.assertEquals(1, gradeClassWithStudentList.get(0).getStudentClassNumber());
+        System.out.println(gradeClassWithStudentList);
     }
 }
 

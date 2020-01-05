@@ -16,7 +16,7 @@
         <th>지역</th>
     </tr>
     <tr>
-        <td><a href="/school/${school.schoolNo}/grade-class/2019}">${school.schoolName}</a></td>
+        <td><a href="/school/${school.schoolNo}/grade-class">${school.schoolName}</a></td>
         <td>${school.schoolNickname}</td>
         <td>${school.grade}</td>
         <td>${school.area}</td>

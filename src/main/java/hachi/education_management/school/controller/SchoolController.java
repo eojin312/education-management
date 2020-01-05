@@ -1,6 +1,7 @@
 package hachi.education_management.school.controller;
 
 import hachi.education_management.common.response.ProcessResponse;
+import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import hachi.education_management.school.controller.request.SchoolSearchParameter;
 import hachi.education_management.school.controller.response.SchoolListResponseDatatable;
 import hachi.education_management.school.model.School;
@@ -136,10 +137,25 @@ SchoolController {
         return new ProcessResponse(true, "");
     }
 
-    @RequestMapping(value = "/{schoolNo}/grade-class/{year}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{schoolNo}/grade-class", method = RequestMethod.GET)
     public String findByGradeClass(@PathVariable long schoolNo, Model model) {
-        List<GradeClassWithSchool> gradeClassWithSchoolList = schoolService.findByGradeClass(schoolNo);
-        model.addAttribute("gradeClassWithSchool", gradeClassWithSchoolList);
+
+        School school = schoolService.findByNo(schoolNo);
+        model.addAttribute("school", school);
+
+        List<GradeClassWithSchool> gradeclassList = schoolService.findByGradeClass(schoolNo);
+        model.addAttribute("gradeclassList", gradeclassList);
+
         return VIEW_DIR_PATH + "/school-grade-list";
+    }
+
+    @RequestMapping(value = "/{schoolNo}/grade-class/{gradeClassNo}", method = RequestMethod.GET)
+    public String gradeClassDetail(@PathVariable("gradeClassNo") int gradeClassNo, @PathVariable("schoolNo") long schoolNo, Model model) {
+        School school = schoolService.findByNo(schoolNo);
+        model.addAttribute("school", school);
+
+        List<GradeClassWithStudent> gradeclassDetailList = schoolService.findGradeClassByGradeClassNoAndSchoolNo(gradeClassNo);
+        model.addAttribute("gradeclassDetailList", gradeclassDetailList);
+        return VIEW_DIR_PATH + "/grade-class-detail";
     }
 }

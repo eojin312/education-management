@@ -1,5 +1,6 @@
 package hachi.education_management.school.repository;
 
+import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import hachi.education_management.school.controller.request.SchoolSearchParameter;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.vo.GradeClassWithSchool;
@@ -25,4 +26,7 @@ public interface SchoolRepository {
     int updateToRemoved(long schoolNo);
 
     List<GradeClassWithSchool> selectByGradeClassWithSchool(long schoolNo);
+
+    List<GradeClassWithStudent> findStudentByGradeClassAndSchoolNo(int gradeClassNo);
+
 }

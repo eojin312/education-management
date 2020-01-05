@@ -119,4 +119,24 @@
         WHERE
             gc.year = 2019 AND s.school_no = #{schoolNo}
     </select>
+
+    <select id="findStudentByGradeClassAndSchoolNo" parameterType="map"
+            resultType="hachi.education_management.grade_class.vo.GradeClassWithStudent">
+        SELECT
+          sgc.student_grade_class_no
+          ,sgc.student_no
+          ,sgc.grade_class_no
+          ,sc.school_no
+          ,s.name
+          ,s.sex
+          ,sgc.student_class_number
+          ,sc.school_name
+          ,sc.area
+        FROM student_grade_class sgc
+        INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+        INNER JOIN student s ON s.student_no = sgc.student_no
+        INNER JOIN school sc ON sc.school_no = gc.school_no
+        WHERE gc.year = 2019 AND sgc.grade_class_no = #{gradeClassNo}
+    </select>
+
 </mapper>
