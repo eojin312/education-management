@@ -5,6 +5,7 @@ import hachi.education_management.school.controller.request.SchoolSearchParamete
 import hachi.education_management.school.controller.response.SchoolListResponseDatatable;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
+import hachi.education_management.school.vo.GradeClassWithSchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -135,9 +136,10 @@ SchoolController {
         return new ProcessResponse(true, "");
     }
 
-    @RequestMapping(value = "/{schoolNo}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{schoolNo}/grade-class/{year}", method = RequestMethod.GET)
     public String findByGradeClass(@PathVariable long schoolNo, Model model) {
-        model.addAttribute("school", schoolService.findByGradeClass(schoolNo));
-        return VIEW_DIR_PATH + "/school-list";
+        List<GradeClassWithSchool> gradeClassWithSchoolList = schoolService.findByGradeClass(schoolNo);
+        model.addAttribute("gradeClassWithSchool", gradeClassWithSchoolList);
+        return VIEW_DIR_PATH + "/school-grade-list";
     }
 }

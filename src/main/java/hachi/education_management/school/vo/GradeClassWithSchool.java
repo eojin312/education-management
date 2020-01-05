@@ -1,20 +1,19 @@
 package hachi.education_management.school.vo;
 
 public class GradeClassWithSchool {
-    private long SchoolNo;
+    private long schoolNo;
     private String schoolName;
     private int gradeClassNo;
     private int year;
     private int grade;
     private int gradeClass;
 
-
     public long getSchoolNo() {
-        return SchoolNo;
+        return schoolNo;
     }
 
     public void setSchoolNo(long schoolNo) {
-        SchoolNo = schoolNo;
+        this.schoolNo = schoolNo;
     }
 
     public String getSchoolName() {
@@ -56,16 +55,5 @@ public class GradeClassWithSchool {
     public void setGradeClass(int gradeClass) {
         this.gradeClass = gradeClass;
     }
-
-    @Override
-    public String toString() {
-        return "GradeClassWithStudent{" +
-                "SchoolNo=" + SchoolNo +
-                ", schoolName='" + schoolName + '\'' +
-                ", gradeClassNo=" + gradeClassNo +
-                ", year=" + year +
-                ", grade=" + grade +
-                ", gradeClass=" + gradeClass +
-                '}';
-    }
 }
+
