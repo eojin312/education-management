@@ -5,7 +5,7 @@
 <!--mapper namespace 겹치지않게 하기-->
 <mapper namespace="exam">
 
-    <select id="findByExamNoWithStudentNo" resultType="hachi.education_management.exam.vo.ExamStudentApply"
+    <select id="findByExamApplyAndStudent" resultType="hachi.education_management.exam.vo.ExamStudentApply"
             parameterType="long">
     SELECT
       t.teacher_no
@@ -27,4 +27,22 @@
     WHERE s.student_no = #{studentNo}
     limit 0, 100
     </select>
+
+    <!--<select id="examList" resultType="hachi.education_management.exam.vo.ExamStudentApply" resultMap="long">-->
+    <!--SELECT-->
+    <!--sc.school_no-->
+    <!--,sc.school_name-->
+    <!--, sc.area-->
+    <!--, e.grade-->
+    <!--, e.semester-->
+    <!--, e.exam_type-->
+    <!--, t.teacher_name-->
+    <!--, e.start_date-->
+    <!--, e.end_date-->
+    <!--FROM exam e-->
+    <!--INNER JOIN school sc on sc.school_no = e.school_no-->
+    <!--INNER JOIN teacher t on t.teacher_no = e.create_teacher_no and e.update_teacher_no-->
+    <!--WHERE sc.school_no = #{schoolNo}-->
+    <!--LIMIT 0, 10-->
+    <!--</select>-->
 </mapper>
