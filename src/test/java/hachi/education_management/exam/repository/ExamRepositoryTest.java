@@ -1,5 +1,6 @@
 package hachi.education_management.exam.repository;
 
+import hachi.education_management.exam.vo.Exam;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,5 +22,11 @@ public class ExamRepositoryTest {
         List<ExamStudentApply> examStudentApplyList = examRepository.findByExamApplyAndStudent(1);
         Assert.assertTrue(examStudentApplyList.size() >= 1
         );
+    }
+
+    @Test
+    public void findByExam() {
+        List<Exam> examList = examRepository.findByExam(1);
+        Assert.assertTrue(examList.size() >= 1);
     }
 }

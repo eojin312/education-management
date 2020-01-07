@@ -1,5 +1,6 @@
 package hachi.education_management.exam.repository;
 
+import hachi.education_management.exam.vo.Exam;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,10 @@ public class ExamRepositoryImpl implements ExamRepository {
     @Override
     public List<ExamStudentApply> findByExamApplyAndStudent(long studentNo) {
         return sqlSessionTemplate.selectList("exam.findByExamApplyAndStudent", studentNo);
+    }
+
+    @Override
+    public List<Exam> findByExam(long schoolNo) {
+        return sqlSessionTemplate.selectList("exam.findByExam", schoolNo);
     }
 }

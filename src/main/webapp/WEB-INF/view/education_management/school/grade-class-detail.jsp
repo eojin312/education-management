@@ -23,12 +23,14 @@
     </tr>
     <c:forEach var="gradeclass" items="${gradeclassDetailList}">
         <tr>
-            <td>학번들어갈 자리</td>
+            <td>${gradeclass.studentNo}</td>
             <td>${gradeclass.studentClassNumber}</td>
             <td>${gradeclass.name}</td>
             <td>${gradeclass.sex}</td>
         </tr>
     </c:forEach>
 </table>
+
+<input type="button" value="응시했던 시험 확인하기" onclick="window.location.href='/exam/${gradeclassDetailList.studentNo}/';">
 </body>
 </html>
