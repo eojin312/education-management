@@ -3,23 +3,26 @@ package hachi.education_management.exam.vo;
 import java.util.Date;
 
 public class Exam {
-    private int examNo;
+    private int exam;
+    private long schoolNo;
     private long teacherNo;
-    private String teacherNane;
-    private String year;
-    private long studentNo;
+    private String area;
     private int grade;
     private int semester;
     private String examType;
+    private String teacherName;
     private Date startDate;
     private Date endDate;
+    private String schoolName;
+    private int subjectNo;
+    private String subjectName;
 
-    public int getExamNo() {
-        return examNo;
+    public long getSchoolNo() {
+        return schoolNo;
     }
 
-    public void setExamNo(int examNo) {
-        this.examNo = examNo;
+    public void setSchoolNo(long schoolNo) {
+        this.schoolNo = schoolNo;
     }
 
     public long getTeacherNo() {
@@ -30,28 +33,12 @@ public class Exam {
         this.teacherNo = teacherNo;
     }
 
-    public String getTeacherNane() {
-        return teacherNane;
+    public String getArea() {
+        return area;
     }
 
-    public void setTeacherNane(String teacherNane) {
-        this.teacherNane = teacherNane;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public long getStudentNo() {
-        return studentNo;
-    }
-
-    public void setStudentNo(long studentNo) {
-        this.studentNo = studentNo;
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public int getGrade() {
@@ -78,6 +65,14 @@ public class Exam {
         this.examType = examType;
     }
 
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     public Date getStartDate() {
         return startDate;
     }
@@ -94,19 +89,55 @@ public class Exam {
         this.endDate = endDate;
     }
 
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    public int getSubjectNo() {
+        return subjectNo;
+    }
+
+    public void setSubjectNo(int subjectNo) {
+        this.subjectNo = subjectNo;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
+    public int getExam() {
+        return exam;
+    }
+
+    public void setExam(int exam) {
+        this.exam = exam;
+    }
+
+
     @Override
     public String toString() {
         return "Exam{" +
-                "examNo=" + examNo +
+                "exam=" + exam +
+                ", schoolNo=" + schoolNo +
                 ", teacherNo=" + teacherNo +
-                ", teacherNane='" + teacherNane + '\'' +
-                ", year='" + year + '\'' +
-                ", studentNo=" + studentNo +
+                ", area='" + area + '\'' +
                 ", grade=" + grade +
                 ", semester=" + semester +
                 ", examType='" + examType + '\'' +
+                ", teacherName='" + teacherName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", schoolName='" + schoolName + '\'' +
+                ", subjectNo=" + subjectNo +
+                ", subjectName='" + subjectName + '\'' +
                 '}';
     }
 }

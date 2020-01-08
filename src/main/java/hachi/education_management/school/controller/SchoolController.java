@@ -7,6 +7,7 @@ import hachi.education_management.school.controller.response.SchoolListResponseD
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
 import hachi.education_management.school.vo.GradeClassWithSchool;
+import hachi.education_management.student.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

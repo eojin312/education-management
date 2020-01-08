@@ -28,9 +28,10 @@
     limit 0, 100
     </select>
 
-    <select id="findByExam" resultType="hachi.education_management.exam.vo.Exam" parameterType="long">
+    <select id="findByExam" resultType="hachi.education_management.exam.vo.Exam" parameterType="int">
     SELECT
-        sc.school_no
+        ,e.exam_no
+        ,sc.school_no
         ,sc.school_name
         , sc.area
         , e.grade
@@ -39,10 +40,13 @@
         , t.teacher_name
         , e.start_date
         , e.end_date
+        , s.subject_no
+        , s.subject_name
     FROM exam e
     INNER JOIN school sc on sc.school_no = e.school_no
     INNER JOIN teacher t on t.teacher_no = e.create_teacher_no and e.update_teacher_no
-    WHERE sc.school_no = #{schoolNo}
-    LIMIT 0, 10
+    INNER JOIN subject s on s.subject_no = e.subjectNo
+    WHERE  e.grade = #{grade}
+    LIMIT 0, 10;
     </select>
 </mapper>

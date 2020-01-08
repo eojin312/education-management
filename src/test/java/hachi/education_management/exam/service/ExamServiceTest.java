@@ -1,4 +1,5 @@
-package hachi.education_management.exam.repository;
+package hachi.education_management.exam.service;
+
 
 import hachi.education_management.exam.vo.Exam;
 import hachi.education_management.exam.vo.ExamStudentApply;
@@ -13,23 +14,26 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
-public class ExamRepositoryTest {
+public class ExamServiceTest {
+
     @Autowired
-    private ExamRepository examRepository;
+    private ExamService examService;
 
     @Test
     public void findByExamApplyAndStudent() {
-        List<ExamStudentApply> examStudentApplyList = examRepository.findByExamApplyAndStudent(1);
+        List<ExamStudentApply> examStudentApplyList = examService.findByExamApplyAndStudent(1);
         for (ExamStudentApply examStudentApply : examStudentApplyList) {
             System.out.println(examStudentApplyList);
         }
-        Assert.assertTrue(examStudentApplyList.size() >= 1
-        );
+        Assert.assertTrue(examStudentApplyList.size() >= 1);
     }
 
     @Test
     public void findByExam() {
-        List<Exam> examList = examRepository.findByExam(1);
+        List<Exam> examList = examService.findByExam(1);
+        for (Exam exam : examList) {
+            System.out.println(exam);
+        }
         Assert.assertTrue(examList.size() >= 1);
     }
 }
