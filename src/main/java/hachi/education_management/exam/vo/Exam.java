@@ -3,7 +3,7 @@ package hachi.education_management.exam.vo;
 import java.util.Date;
 
 public class Exam {
-    private int exam;
+    private int examNo;
     private long schoolNo;
     private long teacherNo;
     private String area;
@@ -114,18 +114,18 @@ public class Exam {
     }
 
     public int getExam() {
-        return exam;
+        return examNo;
     }
 
-    public void setExam(int exam) {
-        this.exam = exam;
+    public void setExam(int examNo) {
+        this.examNo = examNo;
     }
 
 
     @Override
     public String toString() {
         return "Exam{" +
-                "exam=" + exam +
+                "examNo=" + examNo +
                 ", schoolNo=" + schoolNo +
                 ", teacherNo=" + teacherNo +
                 ", area='" + area + '\'' +

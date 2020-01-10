@@ -32,6 +32,7 @@
         </tr>
     </c:forEach>
 </table>
-<a href="/exam/examlist">시험 확인해보기</a>
+
+
 </body>
 </html>

@@ -30,7 +30,7 @@
 
     <select id="findByExam" resultType="hachi.education_management.exam.vo.Exam" parameterType="int">
     SELECT
-        ,e.exam_no
+        e.exam_no
         ,sc.school_no
         ,sc.school_name
         , sc.area

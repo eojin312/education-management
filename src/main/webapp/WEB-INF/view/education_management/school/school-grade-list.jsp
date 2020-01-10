@@ -33,6 +33,7 @@
             <td><input type="button" value="반상세정보"
                        onclick="window.location.href='/school/${school.schoolNo}/grade-class/${gradeclass.gradeClassNo}';">
             </td>
+            <a href="/exams/school/${school.schoolNo}/${gradeclass.grade}">시험 확인해보기</a>
         </tr>
     </c:forEach>
 </table>

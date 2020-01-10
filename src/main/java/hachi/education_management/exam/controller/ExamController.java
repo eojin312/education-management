@@ -3,6 +3,7 @@ package hachi.education_management.exam.controller;
 import hachi.education_management.exam.service.ExamService;
 import hachi.education_management.exam.vo.Exam;
 import hachi.education_management.exam.vo.ExamStudentApply;
+import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,12 +33,13 @@ public class ExamController {
         return EXAM + "/student-exam-apply-list";
     }
 
-    @RequestMapping(value = "/school/{schoolNo}//{grade}")
-    public String list(@PathVariable("grade") int garde, Model model) {
-        schoolService.findByNo(1);
+    @RequestMapping(value = "/school/{schoolNo}/{grade}")
+    public String list(@PathVariable("grade") int garde, @PathVariable("schoolNo") long schoolNo, Model model) {
+        School school = schoolService.findByNo(schoolNo);
+        model.addAttribute("school", school);
 
         List<Exam> examList = examService.findByExam(garde);
         model.addAttribute("examList", examList);
-        return "exam-list";
+        return EXAM + "/exam-list";
     }
 }
