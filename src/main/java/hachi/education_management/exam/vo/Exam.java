@@ -29,6 +29,10 @@ public class Exam {
         return teacherNo;
     }
 
+    public int getExamNo() {
+        return examNo;
+    }
+
     public void setTeacherNo(long teacherNo) {
         this.teacherNo = teacherNo;
     }

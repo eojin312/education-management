@@ -25,15 +25,18 @@
         <th>끝나는 날짜</th>
         <th>과목 일련번호</th>
         <th>과목</th>
+        <th>시험일련번호</th>
     </tr>
-    <c:forEach var="examList" items="${examList}">
+
+    <c:forEach var="exam" items="${examList}">
         <tr>
-            <td>${examList.grade} 학년</td>
-            <td>${examList.semester} 학기</td>
-            <td>${examList.startDate}</td>
-            <td>${examList.endDate}</td>
-            <td>${examList.subjectNo}</td>
-            <td>${examList.subjectName}</td>
+            <td>${exam.grade} 학년</td>
+            <td>${exam.semester} 학기</td>
+            <td>${exam.startDate}</td>
+            <td>${exam.endDate}</td>
+            <td>${exam.subjectNo}</td>
+            <td>${exam.subjectName}</td>
+            <td>${exam.examNo}</td>
         </tr>
     </c:forEach>
 </table>
