@@ -14,8 +14,8 @@ public class ExamServiceImpl implements ExamService {
     private ExamRepository examRepository;
 
     @Override
-    public List<ExamStudentApply> findByExamApplyAndStudent(long studentNo) {
-        return examRepository.findByExamApplyAndStudent(studentNo);
+    public List<ExamStudentApply> findByExamApplyAndStudent(long examStudentApplyNo) {
+        return examRepository.findByExamApplyAndStudent(examStudentApplyNo);
     }
 
     @Override

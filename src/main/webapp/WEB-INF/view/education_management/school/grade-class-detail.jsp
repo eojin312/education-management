@@ -28,7 +28,7 @@
             <td>${gradeclass.name}</td>
             <td>${gradeclass.sex}</td>
             <td><input type="button" value="응시했던 시험 확인하기"
-                       onclick="window.location.href='/exam/exam-apply-list/${gradeclass.studentNo}';"></td>
+                       onclick="window.location.href='/exams/student/${gradeclass.studentNo}';"></td>
         </tr>
     </c:forEach>
 </table>

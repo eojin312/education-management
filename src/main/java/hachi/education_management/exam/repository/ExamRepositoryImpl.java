@@ -15,8 +15,8 @@ public class ExamRepositoryImpl implements ExamRepository {
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public List<ExamStudentApply> findByExamApplyAndStudent(long studentNo) {
-        return sqlSessionTemplate.selectList("exam.findByExamApplyAndStudent", studentNo);
+    public List<ExamStudentApply> findByExamApplyAndStudent(long examStudentApplyNo) {
+        return sqlSessionTemplate.selectList("exam.findByExamApplyAndStudent", examStudentApplyNo);
     }
 
     @Override

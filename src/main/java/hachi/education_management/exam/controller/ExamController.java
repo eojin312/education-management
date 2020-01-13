@@ -5,6 +5,8 @@ import hachi.education_management.exam.vo.Exam;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
+import hachi.education_management.student.service.StudentService;
+import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,12 +26,18 @@ public class ExamController {
     private ExamService examService;
 
     @Autowired
+    private StudentService studentService;
+
+    @Autowired
     private SchoolService schoolService;
 
     @RequestMapping(value = "/student/{studentNo}", method = RequestMethod.GET)
     public String studentExamApplyList(@PathVariable("studentNo") long studentNo, Model model) {
+        StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
+        model.addAttribute("student", studentWithGradeClassForStudentDetailAndList);
+
         List<ExamStudentApply> studentApplyList = examService.findByExamApplyAndStudent(studentNo);
-        model.addAttribute("studentApplies", studentApplyList);
+        model.addAttribute("studentApplyList", studentApplyList);
         return EXAM + "/student-exam-apply-list";
     }
 

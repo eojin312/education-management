@@ -27,7 +27,6 @@
         <th>과목</th>
         <th>시험일련번호</th>
     </tr>
-
     <c:forEach var="exam" items="${examList}">
         <tr>
             <td>${exam.grade} 학년</td>
