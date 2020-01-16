@@ -49,4 +49,26 @@
     WHERE  e.grade = #{grade}
     LIMIT 0, 10;
     </select>
+
+    <select id="findByExamDeatilForStudent" resultType="hachi.education_management.exam.vo.ExamDetail"
+            parameterType="long">
+    select
+        s.student_no
+        ,sub.subject_no
+        ,esd.exam_student_detail_no
+        ,e.exam_no
+        ,s.name
+        ,e.grade
+        ,e.semester
+        ,e.start_date
+        ,e.end_date
+        ,sub.subject_name
+        ,esd.perfect
+        ,esd.score
+    from exam_student_detail esd
+    inner join exam e on e.exam_no = esd.exam_no
+    inner join student s on s.student_no = esd.student_no
+    inner join subject sub on sub.subject_no = esd.subject_no
+    where s.student_no = #{studentNo}
+    </select>
 </mapper>

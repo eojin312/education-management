@@ -26,5 +26,6 @@ ${student.name} 님의 시험 응시 리스트입니다.
         </tr>
     </c:forEach>
 </table>
+
 </body>
 </html>
