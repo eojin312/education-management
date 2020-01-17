@@ -23,6 +23,7 @@ ${student.name} 님의 시험 응시 리스트입니다.
             <td>${studentApply.createDate}</td>
             <td>${studentApply.teacherName}</td>
             <td>${studentApply.updateDate}</td>
+            <td><input type="button" value="성적확인하기" onclick="window.location.href='/exams/exam/${studentApply.examNo}/student/${studentApply.studentNo}';"></td>
         </tr>
     </c:forEach>
 </table>

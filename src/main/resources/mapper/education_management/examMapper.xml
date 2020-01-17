@@ -51,8 +51,8 @@
     </select>
 
     <select id="findByExamDeatilForStudent" resultType="hachi.education_management.exam.vo.ExamDetail"
-            parameterType="long">
-    select
+            parameterType="int">
+    SELECT
         s.student_no
         ,sub.subject_no
         ,esd.exam_student_detail_no
@@ -65,10 +65,10 @@
         ,sub.subject_name
         ,esd.perfect
         ,esd.score
-    from exam_student_detail esd
-    inner join exam e on e.exam_no = esd.exam_no
-    inner join student s on s.student_no = esd.student_no
-    inner join subject sub on sub.subject_no = esd.subject_no
-    where s.student_no = #{studentNo}
+    FROM exam_student_detail esd
+    INNER JOIN exam e on e.exam_no = esd.exam_no
+    INNER JOIN student s on s.student_no = esd.student_no
+    INNER JOIN subject sub on sub.subject_no = esd.subject_no
+    WHERE s.student_no = #{studentNo} AND e.exam_no = #{examNo}
     </select>
 </mapper>

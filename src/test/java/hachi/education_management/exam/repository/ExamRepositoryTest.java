@@ -37,6 +37,9 @@ public class ExamRepositoryTest {
     @Test
     public void findByExamDeatilForStudent() {
         List<ExamDetail> examDetails = examRepository.findByExamDeatilForStudent(1);
+        for (ExamDetail examDetail : examDetails) {
+            System.out.println(examDetail);
+        }
         Assert.assertTrue(examDetails.size() >= 1);
     }
 }

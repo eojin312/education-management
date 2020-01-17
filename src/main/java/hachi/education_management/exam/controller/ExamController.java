@@ -2,6 +2,7 @@ package hachi.education_management.exam.controller;
 
 import hachi.education_management.exam.service.ExamService;
 import hachi.education_management.exam.vo.Exam;
+import hachi.education_management.exam.vo.ExamDetail;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
@@ -49,5 +50,12 @@ public class ExamController {
         List<Exam> examList = examService.findByExam(garde);
         model.addAttribute("examList", examList);
         return EXAM + "/exam-list";
+    }
+
+    @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
+    public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
+        List<ExamDetail> examDetailList = examService.findByExamDeatilForStudent(examNo);
+        model.addAttribute("examDetail", examDetailList);
+        return EXAM + "/student-exam-detail";
     }
 }

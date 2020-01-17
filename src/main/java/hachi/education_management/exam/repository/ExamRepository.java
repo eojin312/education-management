@@ -11,7 +11,7 @@ public interface ExamRepository {
 
     List<Exam> findByExam(int grade);
 
-    List<ExamDetail> findByExamDeatilForStudent(long studentNo);
+    List<ExamDetail> findByExamDeatilForStudent(int examNo);
 }
 
 

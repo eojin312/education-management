@@ -7,6 +7,8 @@ public class ExamDetail {
     private int examNo;
     private long studentNo;
     private int subjectNo;
+    private int grade;
+    private int semester;
     private String name;
     private Date startDate;
     private Date endDate;
@@ -94,6 +96,22 @@ public class ExamDetail {
         this.perfect = perfect;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
     @Override
     public String toString() {
         return "ExamDetail{" +
@@ -101,6 +119,8 @@ public class ExamDetail {
                 ", examNo=" + examNo +
                 ", studentNo=" + studentNo +
                 ", subjectNo=" + subjectNo +
+                ", grade=" + grade +
+                ", semester=" + semester +
                 ", name='" + name + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +

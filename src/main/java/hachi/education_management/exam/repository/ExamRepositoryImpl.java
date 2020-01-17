@@ -26,7 +26,7 @@ public class ExamRepositoryImpl implements ExamRepository {
     }
 
     @Override
-    public List<ExamDetail> findByExamDeatilForStudent(long studentNo) {
-        return sqlSessionTemplate.selectList("exam.findByExamDeatilForStudent", studentNo);
+    public List<ExamDetail> findByExamDeatilForStudent(int examNo) {
+        return sqlSessionTemplate.selectList("exam.findByExamDeatilForStudent", examNo);
     }
 }
