@@ -12,6 +12,8 @@ public interface ExamRepository {
     List<Exam> findByExam(int grade);
 
     List<ExamDetail> findByExamDeatilForStudent(int examNo);
+
+    int insertExam();
 }
 
 

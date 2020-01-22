@@ -71,4 +71,36 @@
     INNER JOIN subject sub on sub.subject_no = esd.subject_no
     WHERE s.student_no = #{studentNo} AND e.exam_no = #{examNo}
     </select>
+
+    <insert id="insertExam" parameterType="hachi.education_management.exam.vo.Exam"
+            useGeneratedKeys="true"
+            keyProperty="schoolNo">
+    INSERT INTO
+        exam
+        (
+            year
+            ,school_no
+            ,grade
+            ,semester
+            ,exam_type
+            ,start_date
+            ,end_date
+            ,create_teacher_no
+            ,update_teacher_no
+            ,subjectNo
+            )
+    VALUES
+        (
+           #{year}
+           ,#{schoolNo}
+           ,#{grade}
+           ,#{semester}
+           ,#{examType}
+           ,#{startDate}
+           ,#{endDate}
+           ,#{createTeacherNo}
+           ,#{updateTeacherNo}
+           ,#{subjectNo}
+           )
+    </insert>
 </mapper>

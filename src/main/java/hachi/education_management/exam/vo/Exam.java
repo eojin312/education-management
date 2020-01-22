@@ -16,6 +16,19 @@ public class Exam {
     private String schoolName;
     private int subjectNo;
     private String subjectName;
+    private int year;
+
+    public void setExamNo(int examNo) {
+        this.examNo = examNo;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public long getSchoolNo() {
         return schoolNo;

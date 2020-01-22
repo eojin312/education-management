@@ -29,4 +29,9 @@ public class ExamRepositoryImpl implements ExamRepository {
     public List<ExamDetail> findByExamDeatilForStudent(int examNo) {
         return sqlSessionTemplate.selectList("exam.findByExamDeatilForStudent", examNo);
     }
+
+    @Override
+    public int insertExam() {
+        return sqlSessionTemplate.insert("exam.insertExam");
+    }
 }
