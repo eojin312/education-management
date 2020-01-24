@@ -3,24 +3,59 @@
 <!DOCTYPE>
 <html>
 <head>
-    <title>교육청 배정 홈페이지</title>
-    <%--<link rel="stylesheet" href="/static/css/home.css" type="text/css">--%>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>학사 관리 프로그램</title>
+
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-theme.css" type="text/css">
     <script src="/static/js/jquery.3.4.js"></script>
+    <script src="/static/bootstrap/bootstrap.min.js"></script>
+
 </head>
 <body>
+<div class="container">
     <h1>나이스</h1>
+
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
     <div id="main">
         <div class="gnb">
-            <span>
-                <c:choose>
-                    <c:when test="${loginedTeacher != null}">
-                        ${loginedTeacher.teacherName} 선생님 안녕하세요. <a href="#" onclick="logout(); return false;">로그아웃</a>
-                    </c:when>
-                    <c:otherwise>
-                        로그인해주세요
-                    </c:otherwise>
-                </c:choose>
-            </span>
+                <span>
+                    <c:choose>
+                        <c:when test="${loginedTeacher != null}">
+                            ${loginedTeacher.teacherName} 선생님 안녕하세요. <a href="#"
+                                                                        onclick="logout(); return false;">로그아웃</a>
+                        </c:when>
+                        <c:otherwise>
+                            로그인해주세요
+                        </c:otherwise>
+                    </c:choose>
+                </span>
+            <button type="button" class="btn btn-lg btn-default">Default</button>
         </div>
         <div>
             <ul>
@@ -31,21 +66,24 @@
             </ul>
         </div>
         <c:if test="${loginedTeacher == null}">
-        <form id="loginform" name="loginform" method="post" action="/login">
-            <div id="login">
-                id <br> <input type="text" id="userId" name="userId"> <br>
-                password <br> <input type="password" id="userPwd" name="userPwd">
-                <br><input type="button" value="로그인하기" onclick="login()">
-            </div>
-            <div>
-                <input type="radio" name="userType" value="student">학생
-                <input type="radio" name="userType" value="teacher">선생님
-                <input type="radio" name="userType" value="staff">교육청
-            </div>
-        </form>
-    </c:if>
+            <form id="loginform" name="loginform" method="post" action="/login">
+                <div id="login">
+                    id <br> <input type="text" id="userId" name="userId"> <br>
+                    password <br> <input type="password" id="userPwd" name="userPwd">
+                    <br><input type="button" value="로그인하기" onclick="login()">
+                </div>
+                <div>
+                    <input type="radio" name="userType" value="student">학생
+                    <input type="radio" name="userType" value="teacher">선생님
+                    <input type="radio" name="userType" value="staff">교육청
+                </div>
+            </form>
+        </c:if>
     </div>
-    <script>
+</div>
+
+
+<script>
         function login() {
             var userId = $('#userId').val();
             var userPwd = $('#userPwd').val();

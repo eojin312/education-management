@@ -13,6 +13,7 @@
     <!--static리소스에 대해 설정해줘야 됨 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
 
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view"/>
         <property name="order" value="1"/>

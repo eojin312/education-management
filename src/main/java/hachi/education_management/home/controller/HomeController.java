@@ -31,4 +31,15 @@ public class HomeController {
         model.addAttribute("loginedStudent", loginedStudent);
         return "/education_management/educationhome/home";
     }
+
+    @RequestMapping(value = "/home-sbadmin", method = RequestMethod.GET)
+    public String homeSbAdmin(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+
+        Teacher loginedTeacher = (Teacher) session.getAttribute("teacher");
+        Student loginedStudent = (Student) session.getAttribute("student");
+        model.addAttribute("loginedTeacher", loginedTeacher);
+        model.addAttribute("loginedStudent", loginedStudent);
+        return "/sbadmin/index/home";
+    }
 }
