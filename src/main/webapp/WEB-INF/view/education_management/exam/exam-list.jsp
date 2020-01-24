@@ -1,20 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>학사 관리 프로그램</title>
-    <%--sbadmin2를 사용할 때에는 bootstrap.css는 별도로 필요없다--%>
-    <%--<link rel="stylesheet" href="/static/bootstrap/bootstrap.css" type="text/css">--%>
-    <link rel="stylesheet" href="/static/bootstrap/theme/sbadmin2/all.min.css" type="text/css">
-    <link rel="stylesheet" href="/static/bootstrap/theme/sbadmin2/sb-admin-2.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
 </head>
 <body>
 <table border="1">
@@ -26,7 +13,6 @@
         <td> ${school.schoolNo}</td>
         <td><a href="/school/${school.schoolNo}">${school.schoolName}</a></td>
     </tr>
-
 </table>
 <table class="table table-striped">
     <tr>
@@ -50,12 +36,5 @@
         </tr>
     </c:forEach>
 </table>
-
-<!-- 공통 js 들 -->
-<script src="/static/bootstrap/theme/sbadmin2/jquery.js"></script>
-<script src="/static/bootstrap/theme/sbadmin2/bootstrap.bundle.js"></script>
-<script src="/static/bootstrap/theme/sbadmin2/jquery.easing.min.js"></script>
-<script src="/static/bootstrap/theme/sbadmin2/sb-admin-2.js"></script>
-
 </body>
 </html>

@@ -1,9 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE>
 <html>
 <head>
-    <title>Title</title>
+    <title>Title<decorator:title/></title>
+    <decorator:head/>
 </head>
 <body>
 <table border="1">
@@ -32,7 +32,6 @@
         </tr>
     </c:forEach>
 </table>
-
 
 </body>
 </html>
