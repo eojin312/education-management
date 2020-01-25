@@ -2,11 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title<decorator:title/></title>
-    <decorator:head/>
 </head>
 <body>
-<table border="1">
+<table class="table table-bordered dataTable">
     <tr>
         <td>${school.schoolNo}</td>
         <td>${school.schoolName}</td>
@@ -14,7 +12,7 @@
 
     </tr>
 </table>
-<table border="1">
+<table class="table table-bordered dataTable">
     <tr>
         <th>학번</th>
         <th>번호</th>

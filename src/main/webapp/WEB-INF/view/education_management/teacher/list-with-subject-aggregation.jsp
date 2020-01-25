@@ -5,7 +5,7 @@
     <title>선생님 리스트</title>
 </head>
 <body>
-<table border="1" bgcolor="#ffdead">
+<table class="table table-bordered dataTable">
     <c:forEach var="teacher" items="${teacherList}">
         <tr>
             <th>선생님 명</th>

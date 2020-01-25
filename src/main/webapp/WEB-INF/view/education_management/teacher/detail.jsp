@@ -4,7 +4,7 @@
     <title>선생님 등록 상세화면</title>
 </head>
 <body>
-<table border="3" bgcolor="#8fbc8f">
+<table class="table table-bordered dataTable">
     <tr>
         <th>선생님 이름</th>
         <th>선생님 주민번호</th>

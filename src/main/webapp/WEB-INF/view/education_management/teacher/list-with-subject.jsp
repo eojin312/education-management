@@ -5,8 +5,7 @@
     <title>선생님 리스트</title>
 </head>
 <body>
-<table border="1" bgcolor="#ffdead">
-    <c:forEach var="teacherSubject" items="${teacherList}">
+<table class="table table-bordered dataTable">
     <tr>
         <th>선생님 명</th>
         <th>성별</th>
@@ -14,7 +13,8 @@
         <th>담당 반</th>
         <th>과목</th>
     </tr>
-    <tr>
+    <c:forEach var="teacherSubject" items="${teacherList}">
+        <tr>
         <td><a href="/teacher/${teacherSubject.teacherNo}">${teacherSubject.teacherName}</a></td>
         <td>${teacherSubject.sex}</td>
         <td>${teacherSubject.classType}</td>

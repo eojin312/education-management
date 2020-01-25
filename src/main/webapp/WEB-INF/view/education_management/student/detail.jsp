@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<table border="1" bgcolor="#ffdead">
+<table class="table table-bordered dataTable">
     <tr>
         <th>학생번호</th>
         <th>학생 이름</th>

@@ -5,7 +5,7 @@
     <title>학생 리스트</title>
 </head>
 <body>
-<table border="1" bgcolor="#ffdead">
+<table class="table table-bordered dataTable">
     <c:forEach var="studentWithGradeClassForStudentDetailAndList" items="${studentList}">
         <tr>
             <th>학생이름</th>

@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<table border="1">
+<table class="table table-bordered dataTable">
     <tr>
         <td>학교번호</td>
         <td>${school.schoolNo}</td>
@@ -16,7 +16,7 @@
         <td>${school.schoolName}</td>
     </tr>
 </table>
-<table border="1">
+<table class="table table-bordered dataTable">
     <tr>
         <th>반 일련번호</th>
         <th>년도</th>
@@ -33,7 +33,10 @@
             <td><input type="button" value="반상세정보"
                        onclick="window.location.href='/school/${school.schoolNo}/grade-class/${gradeclass.gradeClassNo}';">
             </td>
-            <a href="/exams/school/${school.schoolNo}/${gradeclass.grade}">시험 확인해보기</a>
+            <td><input type="button"
+                       onclick="window.location.href='/exams/school/${school.schoolNo}/${gradeclass.grade}';"
+                       value="응시시험확인"></td>
+
         </tr>
     </c:forEach>
 </table>
