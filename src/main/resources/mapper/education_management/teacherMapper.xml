@@ -38,15 +38,17 @@
 
     <select id="findByTeacherNo" parameterType="int" resultType="hachi.education_management.teacher.model.Teacher">
         SELECT
-          teacher_no,
-          teacher_name,
-          jumin_no,
-          sex,
-          subject_no,
-          id,
-          pwd
+          t.teacher_no,
+          t.teacher_name,
+          t.jumin_no,
+          t.sex,
+          s.subject_no,
+          s.subject_name,
+          t.id,
+          t.pwd
         FROM
-          teacher
+          teacher t
+        INNER JOIN subject s on s.subject_no = t.subject_no
         WHERE
           teacher_no = #{teacherNo}
     </select>

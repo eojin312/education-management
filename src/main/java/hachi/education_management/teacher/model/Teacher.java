@@ -8,6 +8,7 @@ public class Teacher {
     private String sex;
     private int juminNo;
     private int subjectNo;
+    private String subjectName;
     private String id;
     private String pwd;
     private String classType;
@@ -123,6 +124,14 @@ public class Teacher {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     @Override

@@ -15,7 +15,7 @@
         <td>${teacher.teacherName}</td>
         <td>${teacher.juminNo}</td>
         <td>${teacher.sex}</td>
-        <td>${teacher.subjectNo}</td>
+        <td>${teacher.subjectName}</td>
     </tr>
 </table>
 
