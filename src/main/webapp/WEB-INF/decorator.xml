@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/WEB-INF/sitemesh/template">
+    <excludes>
+        <pattern>/member/login</pattern> <!--pattern의 값은 URL이다 -->
+    </excludes>
+
+    <!--<decorator name="home" page="home.jsp">
+        <pattern>/home</pattern>
+    </decorator>-->
+
     <decorator name="default" page="default.jsp">
         <pattern>/*</pattern>
     </decorator>

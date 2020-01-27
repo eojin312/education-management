@@ -21,6 +21,11 @@
             <param name="parameter.value" value="true"/>
         </mapper>
 
+        <!--exclude 를 이용하기 위한 sitemesh 설정-->
+        <mapper class="com.opensymphony.module.sitemesh.mapper.PageDecoratorMapper">
+            <param name="property.1″ value=”meta.decorator"/>
+        </mapper>
+
 
         <mapper class="com.opensymphony.module.sitemesh.mapper.PageDecoratorMapper">
             <param name="property" value="meta.decorator"/>

@@ -3,7 +3,7 @@
 <!DOCTYPE>
 <html>
 <head>
-
+    <meta name=”decorator” content=”null”/>
 </head>
 <body>
 <div class="container">
