@@ -31,7 +31,7 @@ public class ExamRepositoryImpl implements ExamRepository {
     }
 
     @Override
-    public int insertExam() {
-        return sqlSessionTemplate.insert("exam.insertExam");
+    public int insert(hachi.education_management.exam.model.Exam exam) {
+        return sqlSessionTemplate.insert("exam.insert", exam);
     }
 }

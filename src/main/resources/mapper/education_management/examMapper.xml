@@ -69,12 +69,13 @@
     INNER JOIN exam e on e.exam_no = esd.exam_no
     INNER JOIN student s on s.student_no = esd.student_no
     INNER JOIN subject sub on sub.subject_no = esd.subject_no
-    WHERE s.student_no = #{studentNo} AND e.exam_no = #{examNo}
+    WHERE s.student_no = #{studentNo}
+    AND e.exam_no = #{examNo}
     </select>
 
-    <insert id="insertExam" parameterType="hachi.education_management.exam.vo.Exam"
+    <insert id="insert" parameterType="hachi.education_management.exam.model.Exam"
             useGeneratedKeys="true"
-            keyProperty="schoolNo">
+            keyProperty="examNo">
     INSERT INTO
         exam
         (
@@ -85,10 +86,12 @@
             ,exam_type
             ,start_date
             ,end_date
+            ,create_date
             ,create_teacher_no
+            ,update_date
             ,update_teacher_no
             ,subjectNo
-            )
+        )
     VALUES
         (
            #{year}
@@ -98,9 +101,11 @@
            ,#{examType}
            ,#{startDate}
            ,#{endDate}
+           ,now()
            ,#{createTeacherNo}
+           ,now()
            ,#{updateTeacherNo}
            ,#{subjectNo}
-           )
+        )
     </insert>
 </mapper>

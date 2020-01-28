@@ -13,7 +13,7 @@ public interface ExamRepository {
 
     List<ExamDetail> findByExamDeatilForStudent(int examNo);
 
-    int insertExam();
+    int insert(hachi.education_management.exam.model.Exam exam);
 }
 
 
