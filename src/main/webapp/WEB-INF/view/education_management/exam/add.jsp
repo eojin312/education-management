@@ -23,7 +23,7 @@
         <option value="FINAL">기말</option>
         <option value="PERFORMENCE">수헹</option>
     </select>
-
+        <input type="submit" value="등록">
     </form>
 </div>
 </body>

@@ -21,8 +21,8 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public List<ExamList> findByExam(int grade) {
-        return examRepository.findByExam(grade);
+    public List<ExamList> findByExamListWithGrade(int grade) {
+        return examRepository.findByExamListWithGrade(grade);
     }
 
     @Override

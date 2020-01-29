@@ -31,9 +31,9 @@ public class ExamRepositoryTest {
     }
 
     @Test
-    public void findByExam() {
+    public void findByExamListWithGrade() {
         // TODO : findByExam을 findByGradeNo()로 변경
-        List<ExamList> examList = examRepository.findByExam(1);
+        List<ExamList> examList = examRepository.findByExamListWithGrade(1);
         assertTrue(examList.size() >= 1);
     }
 

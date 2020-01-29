@@ -33,8 +33,8 @@ public class ExamServiceTest {
     }
 
     @Test
-    public void findByExam() {
-        List<ExamList> examList = examService.findByExam(1);
+    public void findByExamListWithGrade() {
+        List<ExamList> examList = examService.findByExamListWithGrade(1);
         for (ExamList exam : examList) {
             System.out.println(exam);
         }

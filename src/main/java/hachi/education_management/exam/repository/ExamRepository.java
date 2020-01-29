@@ -10,7 +10,7 @@ import java.util.List;
 public interface ExamRepository {
     List<ExamStudentApply> findByExamApplyAndStudent(long examStudentApplyNo);
 
-    List<ExamList> findByExam(int grade);
+    List<ExamList> findByExamListWithGrade(int grade);
 
     List<ExamDetail> findByExamDeatilForStudent(int examNo);
 
