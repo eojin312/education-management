@@ -1,9 +1,8 @@
 package hachi.education_management.exam.repository;
 
-import hachi.education_management.exam.vo.Exam;
+import hachi.education_management.exam.vo.ExamList;
 import hachi.education_management.exam.vo.ExamDetail;
 import hachi.education_management.exam.vo.ExamStudentApply;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
-public class ExamRepositoryTest {
+public class ExamListRepositoryTest {
     @Autowired
     private ExamRepository examRepository;
 
@@ -34,7 +33,7 @@ public class ExamRepositoryTest {
     @Test
     public void findByExam() {
         // TODO : findByExam을 findByGradeNo()로 변경
-        List<Exam> examList = examRepository.findByExam(1);
+        List<ExamList> examList = examRepository.findByExam(1);
         assertTrue(examList.size() >= 1);
     }
 

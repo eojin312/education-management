@@ -1,7 +1,7 @@
 package hachi.education_management.exam.controller;
 
 import hachi.education_management.exam.service.ExamService;
-import hachi.education_management.exam.vo.Exam;
+import hachi.education_management.exam.vo.ExamList;
 import hachi.education_management.exam.vo.ExamDetail;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import hachi.education_management.school.model.School;
@@ -47,7 +47,7 @@ public class ExamController {
         School school = schoolService.findByNo(schoolNo);
         model.addAttribute("school", school);
 
-        List<Exam> examList = examService.findByExam(garde);
+        List<ExamList> examList = examService.findByExam(garde);
         model.addAttribute("examList", examList);
         return EXAM + "/exam-list";
     }

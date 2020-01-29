@@ -1,6 +1,7 @@
 package hachi.education_management.exam.repository;
 
-import hachi.education_management.exam.vo.Exam;
+import hachi.education_management.exam.model.Exam;
+import hachi.education_management.exam.vo.ExamList;
 import hachi.education_management.exam.vo.ExamDetail;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,7 +22,7 @@ public class ExamRepositoryImpl implements ExamRepository {
     }
 
     @Override
-    public List<Exam> findByExam(int grade) {
+    public List<ExamList> findByExam(int grade) {
         return sqlSessionTemplate.selectList("exam.findByExam", grade);
     }
 
@@ -31,7 +32,7 @@ public class ExamRepositoryImpl implements ExamRepository {
     }
 
     @Override
-    public int insert(hachi.education_management.exam.model.Exam exam) {
+    public int insert(Exam exam) {
         return sqlSessionTemplate.insert("exam.insert", exam);
     }
 }

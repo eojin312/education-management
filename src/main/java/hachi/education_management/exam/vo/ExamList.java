@@ -2,7 +2,7 @@ package hachi.education_management.exam.vo;
 
 import java.util.Date;
 
-public class Exam {
+public class ExamList {
     private int examNo;
     private long schoolNo;
     private long teacherNo;
@@ -141,7 +141,7 @@ public class Exam {
 
     @Override
     public String toString() {
-        return "Exam{" +
+        return "ExamList{" +
                 "examNo=" + examNo +
                 ", schoolNo=" + schoolNo +
                 ", teacherNo=" + teacherNo +
