@@ -25,7 +25,7 @@ public interface SchoolRepository {
 
     int updateToRemoved(long schoolNo);
 
-    List<GradeClassWithSchool> selectByGradeClassWithSchool(long schoolNo);
+    List<GradeClassWithSchool> findByGradeClassWithSchool(long schoolNo);
 
     List<GradeClassWithStudent> findStudentByGradeClassAndSchoolNo(int gradeClassNo);
 

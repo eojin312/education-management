@@ -75,7 +75,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
     @Override
     public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
-        return schoolRepository.selectByGradeClassWithSchool(schoolNo);
+        return schoolRepository.findByGradeClassWithSchool(schoolNo);
     }
 
     @Override

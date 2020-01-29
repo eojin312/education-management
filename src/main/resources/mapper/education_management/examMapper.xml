@@ -28,7 +28,7 @@
     limit 0, 100
     </select>
 
-    <select id="findByExam" resultType="hachi.education_management.exam.vo.ExamList" parameterType="int">
+    <select id="findByExamListWithGrade" resultType="hachi.education_management.exam.vo.ExamList" parameterType="int">
     SELECT
         e.exam_no
         ,sc.school_no

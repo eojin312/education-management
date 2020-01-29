@@ -23,7 +23,7 @@ public class ExamRepositoryImpl implements ExamRepository {
 
     @Override
     public List<ExamList> findByExamListWithGrade(int grade) {
-        return sqlSessionTemplate.selectList("exam.findByExam", grade);
+        return sqlSessionTemplate.selectList("exam.findByExamListWithGrade", grade);
     }
 
     @Override
