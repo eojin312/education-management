@@ -18,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
-public class ExamListServiceTest {
+public class ExamServiceTest {
 
     @Autowired
     private ExamService examService;

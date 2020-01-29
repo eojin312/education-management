@@ -1,5 +1,6 @@
 package hachi.education_management.exam.controller;
 
+import hachi.education_management.exam.model.Exam;
 import hachi.education_management.exam.service.ExamService;
 import hachi.education_management.exam.vo.ExamList;
 import hachi.education_management.exam.vo.ExamDetail;
@@ -11,10 +12,13 @@ import hachi.education_management.student.vo.StudentWithGradeClassForStudentDeta
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -58,4 +62,21 @@ public class ExamController {
         model.addAttribute("examDetail", examDetailList);
         return EXAM + "/student-exam-detail";
     }
+
+    /**
+     * @Valid 원천적으로 등록 오류를 피하기 위해 객체 자체에 검증모델 주입하는 방식을 채택하고 있다.
+     * 대상 객체의 확인 조건을 만족할 경우 통과 가능
+     */
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String add(@Valid @ModelAttribute Exam exam, Model model) {
+        int examNo = examService.insert(exam);
+        return "redirect:/exam/" + examNo;
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addPage() {
+        return EXAM + "/add";
+    }
+
 }
