@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 학사관리 홈화면
+ */
 @Controller
 @RequestMapping(value = "/")
 public class HomeController {
@@ -21,6 +24,13 @@ public class HomeController {
         return "redirect:/home";
     }
 
+    /**
+     * 홈 화면
+     *
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
@@ -30,16 +40,5 @@ public class HomeController {
         model.addAttribute("loginedTeacher", loginedTeacher);
         model.addAttribute("loginedStudent", loginedStudent);
         return "/education_management/educationhome/home";
-    }
-
-    @RequestMapping(value = "/home-sbadmin", method = RequestMethod.GET)
-    public String homeSbAdmin(HttpServletRequest request, Model model) {
-        HttpSession session = request.getSession();
-
-        Teacher loginedTeacher = (Teacher) session.getAttribute("teacher");
-        Student loginedStudent = (Student) session.getAttribute("student");
-        model.addAttribute("loginedTeacher", loginedTeacher);
-        model.addAttribute("loginedStudent", loginedStudent);
-        return "/sbadmin/index/home";
     }
 }
