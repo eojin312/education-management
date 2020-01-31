@@ -9,13 +9,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 과목 repository 구현
+ */
 @Repository
 public class SubjectRepositoryImpl implements SubjectRepository {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-
+    /**
+     * 과목상세리스트
+     *
+     * @param subjectNo 과목 번호로 과목상세리스트
+     * @return
+     */
     @Override
     public Subject findBySubjectNo(int subjectNo) {
         return sqlSessionTemplate.selectOne("subject.findBySubjectNo", subjectNo);

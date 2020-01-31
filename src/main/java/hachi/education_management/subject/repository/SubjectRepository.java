@@ -4,6 +4,9 @@ import hachi.education_management.subject.model.Subject;
 
 import java.util.List;
 
+/**
+ * 과목 repository
+ */
 public interface SubjectRepository {
     Subject findBySubjectNo(int subjectNo);
 

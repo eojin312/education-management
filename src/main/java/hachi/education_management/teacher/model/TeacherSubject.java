@@ -1,5 +1,8 @@
 package hachi.education_management.teacher.model;
 
+/**
+ * 선생님정보와 과목정보를 담은 VO
+ */
 public class TeacherSubject {
     private long teacherNo;
     private String teacherName;

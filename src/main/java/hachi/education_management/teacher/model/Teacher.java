@@ -2,6 +2,9 @@ package hachi.education_management.teacher.model;
 
 import hachi.education_management.subject.model.Subject;
 
+/**
+ * 선생님 정보를 담은 모델
+ */
 public class Teacher {
     private int teacherNo;
     private String teacherName;
@@ -15,7 +18,6 @@ public class Teacher {
     private int classroom;
 
     private Subject subject;
-
 
 
     public Teacher(int teacherNo, String teacherName, String sex, int juminNo, int subjectNo, String id, String pwd, String classType, int classroom) {

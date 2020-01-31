@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * 선생님 컨트롤러
+ */
 @Controller
 @RequestMapping(value = "/teacher")
 public class TeacherController {
@@ -57,9 +60,15 @@ public class TeacherController {
     @RequestMapping(value = "/{teacherNo}", method = RequestMethod.GET)
     public String findByTeacherNo(Model model, @PathVariable int teacherNo){
         model.addAttribute("teacher", teacherService.findByTeacherNo(teacherNo));
-        return VIEW + "/detail";
+        return VIEW + "/findStudentDetailByStudentNo";
     }
 
+    /**
+     * 선생님과 과목 같이 나오는 메소드
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/list-with-subject", method = RequestMethod.GET)
     public String listWithSubject(Model model) {
         List<TeacherSubject> list = teacherService.getTeacherListWithSubject();
@@ -67,6 +76,11 @@ public class TeacherController {
         return VIEW + "/list-with-subject";
     }
 
+    /**
+     * 선생님과 과목 같이 나오는 메소드
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/list-with-subject-aggregation", method = RequestMethod.GET)
     public String listWithSubjectAggregation(Model model) {
         List<Teacher> list = teacherService.findTeacherListWithSubjectAggregation();
