@@ -16,18 +16,18 @@ public class ExamServiceImpl implements ExamService {
     private ExamRepository examRepository;
 
     @Override
-    public List<ExamStudentApply> findByExamApplyAndStudent(long examStudentApplyNo) {
-        return examRepository.findByExamApplyAndStudent(examStudentApplyNo);
+    public List<ExamStudentApply> findExamApplyListByStudentApplyNo(long examStudentApplyNo) {
+        return examRepository.findExamApplyListByStudentApplyNo(examStudentApplyNo);
     }
 
     @Override
-    public List<ExamList> findByExamListWithGrade(int grade) {
-        return examRepository.findByExamListWithGrade(grade);
+    public List<ExamList> findExamListByGradeNo(int gradeNo) {
+        return examRepository.findExamListByGradeNo(gradeNo);
     }
 
     @Override
-    public List<ExamDetail> findByExamDeatilForStudent(int examNo) {
-        return examRepository.findByExamDeatilForStudent(examNo);
+    public List<ExamDetail> findExamDeatilByExamNo(int examNo) {
+        return examRepository.findExamDeatilByExamNo(examNo);
     }
 
     @Override

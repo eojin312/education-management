@@ -2,6 +2,9 @@ package hachi.education_management.exam.model;
 
 import java.util.Date;
 
+/**
+ * 시험 정보 모델
+ */
 public class Exam {
     private int examNo;
     private String year; // 시험연도

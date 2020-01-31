@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * 시험 컨트롤러
+ */
 @Controller
 @RequestMapping(value = "/exams")
 public class ExamController {
@@ -36,36 +39,62 @@ public class ExamController {
     @Autowired
     private SchoolService schoolService;
 
+    /**
+     * 특정 학생 시험응시 리스트 화면
+     * 학생 일련번호 파라미터
+     *
+     * @param studentNo
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/student/{studentNo}", method = RequestMethod.GET)
     public String studentExamApplyList(@PathVariable("studentNo") long studentNo, Model model) {
         StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
         model.addAttribute("student", studentWithGradeClassForStudentDetailAndList);
 
-        List<ExamStudentApply> studentApplyList = examService.findByExamApplyAndStudent(studentNo);
+        List<ExamStudentApply> studentApplyList = examService.findExamApplyListByStudentApplyNo(studentNo);
         model.addAttribute("studentApplyList", studentApplyList);
         return EXAM + "/student-exam-apply-list";
     }
 
-    @RequestMapping(value = "/school/{schoolNo}/{grade}")
-    public String list(@PathVariable("grade") int garde, @PathVariable("schoolNo") long schoolNo, Model model) {
+    /**
+     * 학년마다 등록된 시험
+     *
+     * @param gardeNo
+     * @param schoolNo
+     * @param model
+     * @return TODO : grade 를 gradeNo 로 변경
+     */
+    @RequestMapping(value = "/school/{schoolNo}/{gradeNo}")
+    public String list(@PathVariable("gradeNo") int gardeNo, @PathVariable("schoolNo") long schoolNo, Model model) {
         School school = schoolService.findByNo(schoolNo);
         model.addAttribute("school", school);
 
-        List<ExamList> examList = examService.findByExam(garde);
+        List<ExamList> examList = examService.findExamListByGradeNo(gardeNo);
         model.addAttribute("examList", examList);
         return EXAM + "/exam-list";
     }
 
-    @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
+    /**
+     * 특정 학생 시험 성적
+     *
+     * @param examNo
+     * @param studentNo
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
     public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
-        List<ExamDetail> examDetailList = examService.findByExamDeatilForStudent(examNo);
+        List<ExamDetail> examDetailList = examService.findExamDeatilByExamNo(examNo);
         model.addAttribute("examDetail", examDetailList);
         return EXAM + "/student-exam-detail";
     }
 
     /**
-     * @Valid 원천적으로 등록 오류를 피하기 위해 객체 자체에 검증모델 주입하는 방식을 채택하고 있다.
-     * 대상 객체의 확인 조건을 만족할 경우 통과 가능
+     * 시험 정보 추가
+     * @param exam
+     * @param model
+     * @return
      */
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -74,6 +103,10 @@ public class ExamController {
         return "redirect:/exam/" + examNo;
     }
 
+    /**
+     * 시험 정보 추가 화면
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage() {
         return EXAM + "/add";

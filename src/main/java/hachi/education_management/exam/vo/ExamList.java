@@ -7,7 +7,7 @@ public class ExamList {
     private long schoolNo;
     private long teacherNo;
     private String area;
-    private int grade;
+    private int gradeNo;
     private int semester;
     private String examType;
     private String teacherName;
@@ -58,12 +58,12 @@ public class ExamList {
         this.area = area;
     }
 
-    public int getGrade() {
-        return grade;
+    public int getGradeNo() {
+        return gradeNo;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setGradeNo(int gradeNo) {
+        this.gradeNo = gradeNo;
     }
 
     public int getSemester() {
@@ -146,7 +146,7 @@ public class ExamList {
                 ", schoolNo=" + schoolNo +
                 ", teacherNo=" + teacherNo +
                 ", area='" + area + '\'' +
-                ", grade=" + grade +
+                ", gradeNo=" + gradeNo +
                 ", semester=" + semester +
                 ", examType='" + examType + '\'' +
                 ", teacherName='" + teacherName + '\'' +

@@ -7,7 +7,7 @@ public class ExamDetail {
     private int examNo;
     private long studentNo;
     private int subjectNo;
-    private int grade;
+    private int gradeNo;
     private int semester;
     private String name;
     private Date startDate;
@@ -96,12 +96,12 @@ public class ExamDetail {
         this.perfect = perfect;
     }
 
-    public int getGrade() {
-        return grade;
+    public int getGradeNo() {
+        return gradeNo;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setGradeNo(int gradeNo) {
+        this.gradeNo = gradeNo;
     }
 
     public int getSemester() {
@@ -119,7 +119,7 @@ public class ExamDetail {
                 ", examNo=" + examNo +
                 ", studentNo=" + studentNo +
                 ", subjectNo=" + subjectNo +
-                ", grade=" + grade +
+                ", gradeNo=" + gradeNo +
                 ", semester=" + semester +
                 ", name='" + name + '\'' +
                 ", startDate=" + startDate +

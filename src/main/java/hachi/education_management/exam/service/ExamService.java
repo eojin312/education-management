@@ -8,11 +8,11 @@ import hachi.education_management.exam.vo.ExamStudentApply;
 import java.util.List;
 
 public interface ExamService {
-    List<ExamStudentApply> findByExamApplyAndStudent(long examStudentApplyNo);
+    List<ExamStudentApply> findExamApplyListByStudentApplyNo(long examStudentApplyNo);
 
-    List<ExamList> findByExamListWithGrade(int grade);
+    List<ExamList> findExamListByGradeNo(int gradeNo);
 
-    List<ExamDetail> findByExamDeatilForStudent(int examNo);
+    List<ExamDetail> findExamDeatilByExamNo(int examNo);
 
     int insert(Exam exam);
 }
