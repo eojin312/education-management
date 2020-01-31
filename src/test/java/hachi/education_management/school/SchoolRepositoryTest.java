@@ -32,7 +32,7 @@ public class SchoolRepositoryTest {
 
     @Test
     public void selectByNoTest() {
-        School school = schoolRepository.selectByNo(1);
+        School school = schoolRepository.findSchoolDetailBySchoolNo(1);
         Assert.assertEquals("신안중", school.getSchoolName());
     }
 

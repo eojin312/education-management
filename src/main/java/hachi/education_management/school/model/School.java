@@ -5,6 +5,9 @@ import com.sun.istack.internal.NotNull;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * 학교 정보 데이터를 담기 위한 모델
+ */
 public class School {
     private Long schoolNo;
 
@@ -114,6 +117,7 @@ public class School {
             return "-";
         }
     }
+
     public String getOwnerTypeName() {
         if (this.ownerType.equals("P")) return "사립";
         if (this.ownerType.equals("N")) return "공립";

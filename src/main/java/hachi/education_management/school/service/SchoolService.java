@@ -7,6 +7,10 @@ import hachi.education_management.school.vo.GradeClassWithSchool;
 
 import java.util.List;
 
+/**
+ * 학교 service
+ */
+
 public interface SchoolService {
 
     long add(School school);
@@ -17,13 +21,9 @@ public interface SchoolService {
 
     List<School> findAll(SchoolSearchParameter schoolSearchParameter);
 
-    List<School> findAboutSchool(long schoolNo);
-
     boolean modify(School school);
 
     boolean remove(long schoolNo) throws Exception;
-
-    List<GradeClassWithSchool> findByGradeClass(long schoolNo);
 
     List<GradeClassWithStudent> findGradeClassByGradeClassNoAndSchoolNo(int gradeClassNo);
 }

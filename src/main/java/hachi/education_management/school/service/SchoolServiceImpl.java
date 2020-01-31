@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 학교 service 구현
+ */
 @Service
 public class SchoolServiceImpl implements SchoolService {
 
@@ -27,13 +30,13 @@ public class SchoolServiceImpl implements SchoolService {
         return school.getSchoolNo();
     }
 
-//    상세보기
+    //    상세보기
     @Override
     public School findByNo(long schoolNo) {
-        return schoolRepository.selectByNo(schoolNo);
+        return schoolRepository.findSchoolDetailBySchoolNo(schoolNo);
     }
 
-//    리스트
+    //    리스트
     @Override
     public List<School> findAll() {
         return schoolRepository.findAll();
@@ -44,12 +47,7 @@ public class SchoolServiceImpl implements SchoolService {
         return schoolRepository.findAll(schoolSearchParameter);
     }
 
-    @Override
-    public List<School> findAboutSchool(long schoolNo) {
-        return schoolRepository.findAboutSchool(schoolNo);
-    }
-
-//    수정
+    //    수정
     @Override
     public boolean modify(School school) {
         int updatedRows = schoolRepository.modify(school);
@@ -60,7 +58,7 @@ public class SchoolServiceImpl implements SchoolService {
         }
     }
 
-//    삭제
+    //    삭제
     @Override
     public boolean remove(long schoolNo) throws Exception {
         if (schoolNo == 0) {
@@ -72,10 +70,6 @@ public class SchoolServiceImpl implements SchoolService {
         } else {
             return false;
         }
-    }
-    @Override
-    public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
-        return schoolRepository.findByGradeClassWithSchool(schoolNo);
     }
 
     @Override

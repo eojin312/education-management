@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 학교 repository 구현
+ */
 @Repository
 public class SchoolRepositoryImpl implements SchoolRepository {
 
@@ -24,8 +27,8 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     }
 
     @Override
-    public School selectByNo(long schoolNo) {
-        return sqlSessionTemplate.selectOne("school.selectByNo", schoolNo);
+    public School findSchoolDetailBySchoolNo(long schoolNo) {
+        return sqlSessionTemplate.selectOne("school.findSchoolDetailBySchoolNo", schoolNo);
     }
 
     @Override
@@ -44,11 +47,6 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     }
 
     @Override
-    public List<School> findAboutSchool(long schoolNo) {
-        return sqlSessionTemplate.selectList("school.");
-    }
-
-    @Override
     public int modify(School school) {
         return sqlSessionTemplate.update("school.modify", school);
     }
@@ -58,10 +56,6 @@ public class SchoolRepositoryImpl implements SchoolRepository {
         return sqlSessionTemplate.update("school.updateToRemoved", schoolNo);
     }
 
-    @Override
-    public List<GradeClassWithSchool> findByGradeClassWithSchool(long schoolNo) {
-        return sqlSessionTemplate.selectList("school.findByGradeClassWithSchool", schoolNo);
-    }
 
     @Override
     public List<GradeClassWithStudent> findStudentByGradeClassAndSchoolNo(int gradeClassNo) {

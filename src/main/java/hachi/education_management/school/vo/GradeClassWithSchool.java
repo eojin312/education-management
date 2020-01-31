@@ -1,5 +1,8 @@
 package hachi.education_management.school.vo;
 
+/**
+ * 학교의 학년반의 정보를 담기 위한 Vo
+ */
 public class GradeClassWithSchool {
     private long schoolNo;
     private String schoolName;
