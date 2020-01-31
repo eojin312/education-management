@@ -26,4 +26,6 @@ public interface SchoolService {
     boolean remove(long schoolNo) throws Exception;
 
     List<GradeClassWithStudent> findGradeClassByGradeClassNoAndSchoolNo(int gradeClassNo);
+
+    List<GradeClassWithSchool> findByGradeClass(long schoolNo);
 }

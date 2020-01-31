@@ -64,5 +64,10 @@ public class SchoolRepositoryImpl implements SchoolRepository {
         return sqlSessionTemplate.selectList("school.findStudentByGradeClassAndSchoolNo", params);
     }
 
+    @Override
+    public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
+        return sqlSessionTemplate.selectOne("school.findByGradeClass", schoolNo);
+    }
+
 
 }

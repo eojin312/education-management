@@ -65,7 +65,7 @@ SchoolController {
     @RequestMapping(value = "/{schoolNo}", method = RequestMethod.GET)
     public String detail(Model model, @PathVariable long schoolNo) {
         model.addAttribute("school", schoolService.findByNo(schoolNo));
-        return VIEW_DIR_PATH + "/detail";
+        return VIEW_DIR_PATH + "/findStudentDetailByStudentNo";
     }
 
     /**
@@ -157,6 +157,6 @@ SchoolController {
 
         List<GradeClassWithStudent> gradeclassDetailList = schoolService.findGradeClassByGradeClassNoAndSchoolNo(gradeClassNo);
         model.addAttribute("gradeclassDetailList", gradeclassDetailList);
-        return VIEW_DIR_PATH + "/grade-class-detail";
+        return VIEW_DIR_PATH + "/grade-class-findStudentDetailByStudentNo";
     }
 }

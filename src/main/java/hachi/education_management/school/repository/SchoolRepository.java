@@ -37,4 +37,6 @@ public interface SchoolRepository {
     // 학생 학년 반 리스트를 위한 메소드
     List<GradeClassWithStudent> findStudentByGradeClassAndSchoolNo(int gradeClassNo);
 
+    List<GradeClassWithSchool> findByGradeClass(long schoolNo);
+
 }
