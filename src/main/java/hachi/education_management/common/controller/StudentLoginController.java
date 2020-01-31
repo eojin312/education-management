@@ -14,10 +14,19 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class StudentLoginController {
-
+    /**
+     * 학생용 로그인을 위한 컨트롤러
+     */
     @Autowired
     private StudentService studentService;
 
+    /**
+     * 학생용 로그인 처리
+     *
+     * @param loginUser
+     * @param request
+     * @return
+     */
     @PostMapping("/loginstudent")
     public String login(@ModelAttribute LoginUser loginUser, HttpServletRequest request) {
         HttpSession session = request.getSession();

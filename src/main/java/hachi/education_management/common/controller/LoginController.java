@@ -13,12 +13,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 로그인을 하기위한 컨트롤러
+ */
+
 @Controller
 public class LoginController {
 
     @Autowired
     private TeacherService teacherService;
 
+    /**
+     * 로그인 화면처리
+     * 유저가 작성한 아이디와 비밀번호 데이터를 담기 위한 파라미터
+     *
+     * @param loginUser
+     * @param model
+     * @param request
+     * @return
+     */
     @PostMapping("/login")
     public String login(@ModelAttribute LoginUser loginUser, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
