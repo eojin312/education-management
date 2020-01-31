@@ -20,7 +20,7 @@ public class SchoolServiceTest {
 
     @Test
     public void findByGradeClass() {
-        List<GradeClassWithSchool> gradeClassWithSchools = schoolRepository.findByGradeClassWithSchool(1);
+        List<GradeClassWithSchool> gradeClassWithSchools = schoolRepository.findByGradeClass(1);
         System.out.println(gradeClassWithSchools);
         Assert.assertTrue(gradeClassWithSchools.size() > 0);
 

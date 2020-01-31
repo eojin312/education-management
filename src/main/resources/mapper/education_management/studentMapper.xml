@@ -26,8 +26,8 @@
          )
     </insert>
 
-    <select id="detail" parameterType="long"
-            resultType="hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList">
+    <select id="findStudentDetailByStudentNo" parameterType="long"
+            resultType="hachi.education_management.student.vo.StudentDetailAndList">
         SELECT
           s.student_no
           ,s.name
@@ -49,8 +49,8 @@
         s.student_no = #{studentNo}
     </select>
 
-    <select id="findByStudentNoWithGradeClass"
-            resultType="hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList">
+    <select id="findStudentListByGradeClass"
+            resultType="hachi.education_management.student.vo.StudentDetailAndList">
         SELECT
           s.student_no
           ,s.name
