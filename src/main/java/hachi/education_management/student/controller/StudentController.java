@@ -2,7 +2,7 @@ package hachi.education_management.student.controller;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.service.StudentService;
-import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetailAndList;
 import hachi.education_management.student.ws.request.StudentCreateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * 학생 컨트롤러
+ */
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -26,7 +29,7 @@ public class StudentController {
 
     /**
      * 학생 등록 처리
-     * @param studentCreateDto
+     * @param studentCreateDto 학년반과 학생을 등록하기 위한 파라미터
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -60,7 +63,7 @@ public class StudentController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-        List<StudentWithGradeClassForStudentDetailAndList> studentList = studentService.findByStudentNoWithGradeClass();
+        List<StudentDetailAndList> studentList = studentService.findStudentListByGradeClass();
         model.addAttribute("studentList", studentList);
         return VIEW + "/list";
     }
@@ -68,13 +71,13 @@ public class StudentController {
     /**
      * 학생 리스트의 상세 조회
      * @param model
-     * @param studentNo
+     * @param studentNo 학생 일련번호로 리스트 갖고오는 파라미터
      * @return
      */
     @RequestMapping(value = "/{studentNo}", method = RequestMethod.GET)
     public String studentDetail(Model model, @PathVariable long studentNo) {
-        StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
-        model.addAttribute("studentWithGradeClassForStudentDetailAndList", studentWithGradeClassForStudentDetailAndList);
-        return VIEW + "/detail";
+        StudentDetailAndList studentDetailAndList = studentService.findStudentDetailByStudentNo(studentNo);
+        model.addAttribute("studentWithGradeClassForStudentDetailAndList", studentDetailAndList);
+        return VIEW + "/findStudentDetailByStudentNo";
     }
 }

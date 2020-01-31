@@ -1,6 +1,8 @@
 package hachi.education_management.student.model;
 
-
+/**
+ * 학생정보를 담고있는 모델
+ */
 public class Student {
     private Long studentNo;
     private String name;
