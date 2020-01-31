@@ -21,9 +21,9 @@
             <th>지역</th>
         </tr>
         <tr>
-            <td><a href="/school/${school.schoolNo}/grade-class">${school.schoolName}</a></td>
+            <td><a href="/school/${school.schoolNo}/gradeNo-class">${school.schoolName}</a></td>
             <td>${school.schoolNickname}</td>
-            <td>${school.grade}</td>
+            <td>${school.gradeNo}</td>
             <td>${school.area}</td>
         </tr>
     </c:forEach>

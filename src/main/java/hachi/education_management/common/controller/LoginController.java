@@ -25,9 +25,7 @@ public class LoginController {
 
     /**
      * 로그인 화면처리
-     * 유저가 작성한 아이디와 비밀번호 데이터를 담기 위한 파라미터
-     *
-     * @param loginUser
+     * @param loginUser 유저가 작성한 아이디와 비밀번호 데이터를 담기 위한 파라미터
      * @param model
      * @param request
      * @return

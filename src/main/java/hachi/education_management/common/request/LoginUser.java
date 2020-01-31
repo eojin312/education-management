@@ -9,9 +9,9 @@ public class LoginUser {
     private String userType;
 
     /**
-     * @param userId
-     * @param userPwd
-     * @param userType
+     * @param userId 유저가 작성한 id 파라미터
+     * @param userPwd 유저가 작성한 pwd 파라미터
+     * @param userType 유저가 학생인지 선생님인지 판단하는 파라미터
      */
     public LoginUser(String userId, String userPwd, String userType) {
         this.userId = userId;

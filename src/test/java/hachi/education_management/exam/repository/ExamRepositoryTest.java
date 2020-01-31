@@ -16,13 +16,16 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:mvc-config.xml"})
+/**
+ * 시험 repository 테스트
+ */
 public class ExamRepositoryTest {
     @Autowired
     private ExamRepository examRepository;
 
     @Test
-    public void findByExamApplyAndStudent() {
-        List<ExamStudentApply> examStudentApplyList = examRepository.findByExamApplyAndStudent(1);
+    public void 특정학생시험응시리스트테스트() {
+        List<ExamStudentApply> examStudentApplyList = examRepository.findExamApplyListByStudentApplyNo(1);
         for (ExamStudentApply examStudentApply : examStudentApplyList) {
             System.out.println(examStudentApplyList);
         }
@@ -31,16 +34,14 @@ public class ExamRepositoryTest {
     }
 
     @Test
-    public void findByExamListWithGrade() {
-        // TODO : findByExam을 findByGradeNo()로 변경
-        List<ExamList> examList = examRepository.findByExamListWithGrade(1);
+    public void 특정학년시험정보리스트테스트() {
+        List<ExamList> examList = examRepository.findExamListByGradeNo(1);
         assertTrue(examList.size() >= 1);
     }
 
     @Test
-    public void findByExamDeatilForStudent() {
-        // TODO : findExamDetailListByExamNo()로 변경 , 기억해두기!! find목적어(을)By어떤걸로
-        List<ExamDetail> examDetails = examRepository.findByExamDeatilForStudent(1);
+    public void 특정시험상세목록테스트() {
+        List<ExamDetail> examDetails = examRepository.findExamDeatilByExamNo(1);
         for (ExamDetail examDetail : examDetails) {
             System.out.println(examDetail);
         }

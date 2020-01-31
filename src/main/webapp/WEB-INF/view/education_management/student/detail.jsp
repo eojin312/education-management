@@ -26,7 +26,7 @@
         <td>${studentWithGradeClassForStudentDetailAndList.id}</td>
         <td>${studentWithGradeClassForStudentDetailAndList.schoolName}</td>
         <td>${studentWithGradeClassForStudentDetailAndList.year}</td>
-        <td>${studentWithGradeClassForStudentDetailAndList.grade}</td>
+        <td>${studentWithGradeClassForStudentDetailAndList.gradeNo}</td>
         <td>${studentWithGradeClassForStudentDetailAndList.gradeClass}</td>
     </tr>
 </table>

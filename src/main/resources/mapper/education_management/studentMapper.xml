@@ -37,7 +37,7 @@
           ,gc.school_no
           ,sc.school_name
           ,gc.year
-          ,gc.grade
+          ,gc.gradeNo
           ,gc.grade_class
           ,gc.grade_class_no
         FROM
@@ -60,7 +60,7 @@
           ,gc.school_no
           ,sc.school_name
           ,gc.year
-          ,gc.grade
+          ,gc.gradeNo
           ,gc.grade_class
           ,gc.grade_class_no
         FROM
@@ -77,7 +77,7 @@
             sc.school_name,
             sc.school_nickname,
             gc.year,
-            gc.grade,
+            gc.gradeNo,
             gc.class as gradeClass,
             st.name as studentName,
             st.sex,

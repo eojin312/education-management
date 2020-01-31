@@ -11,7 +11,7 @@
         ,s.name
         ,s.jumin_no
         ,s.sex
-        ,gc.grade
+        ,gc.gradeNo
         ,gc.grade_class
         ,sc.semester
         ,sc.exam

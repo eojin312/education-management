@@ -13,7 +13,7 @@
         학교명 : <select name="schoolNo">
         <option value="1">부림중</option>
     </select> <br>
-        학년: <select name="grade">
+        학년: <select name="gradeNo">
         <option value="1">1학년</option>
         <option value="2">2학년</option>
         <option value="3">3학년</option>

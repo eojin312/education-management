@@ -26,7 +26,7 @@
         SELECT
           sgc.student_grade_class_no
           ,gc.grade_class_no
-          ,gc.grade
+          ,gc.gradeNo
           ,gc.grade_class
           ,s.student_no
           ,s.name

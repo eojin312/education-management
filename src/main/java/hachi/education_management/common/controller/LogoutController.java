@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 public class LogoutController {
     /**
      * 로그아웃 화면처리
-     *
      * @param request
      * @return
      */

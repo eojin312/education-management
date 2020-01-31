@@ -11,7 +11,7 @@
         (
             school_name,
             school_nickname,
-            grade,
+            gradeNo,
             owner_type,
             edu_type,
             use_yn,
@@ -21,7 +21,7 @@
         (
             #{schoolName},
             #{schoolNickname},
-            #{grade},
+            #{gradeNo},
             #{ownerType},
             #{eduType},
             #{useYn},
@@ -34,7 +34,7 @@
         school_no,
         school_name ,
         school_nickname,
-        grade,
+        gradeNo,
         owner_type,
         edu_type,
         use_yn,
@@ -60,7 +60,7 @@
             school_no,
             school_name,
             school_nickname,
-            grade,
+            gradeNo,
             owner_type,
             edu_type,
             use_yn,
@@ -76,7 +76,7 @@
             school_no,
             school_name,
             school_nickname,
-            grade,
+            gradeNo,
             owner_type,
             edu_type,
             use_yn,
@@ -93,7 +93,7 @@
         SET
             school_name = #{schoolName},
             school_nickname = #{schoolNickname},
-            grade = #{grade},
+            gradeNo = #{gradeNo},
             owner_type = #{ownerType},
             edu_type = #{eduType},
             area = #{area}
@@ -112,7 +112,7 @@
             ,s.school_name
             ,gc.grade_class_no
             ,gc.year
-            ,gc.grade
+            ,gc.gradeNo
             ,gc.grade_class
         FROM school  s
         INNER JOIN grade_class gc ON gc.school_no = s.school_no

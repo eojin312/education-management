@@ -11,7 +11,7 @@
 
         학교명 : <input name="schoolName" id="schoolName" type="text" value="${school.schoolName}" readonly> <br>
         학교아이디 : <input name="schoolNickname" id="schoolNickname" type="text" value="${school.schoolNickname}" readonly> <br>
-        초중고 : <select name="grade" id="grade" value="${school.grade}">
+        초중고 : <select name="gradeNo" id="gradeNo" value="${school.gradeNo}">
         <option value="H">고등학교</option>
         <option value="M">중학교</option>
         <option value="E">초등학교</option>

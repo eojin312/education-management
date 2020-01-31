@@ -26,7 +26,7 @@
     </tr>
     <c:forEach var="exam" items="${examList}">
         <tr>
-            <td>${exam.grade} 학년</td>
+            <td>${exam.gradeNo} 학년</td>
             <td>${exam.semester} 학기</td>
             <td>${exam.startDate}</td>
             <td>${exam.endDate}</td>

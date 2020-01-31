@@ -21,7 +21,7 @@
     <c:forEach var="examDetail" items="${examDetail}">
         <tr>
             <td>${examDetail.name}</td>
-            <td>${examDetail.grade} 학년</td>
+            <td>${examDetail.gradeNo} 학년</td>
             <td>${examDetail.semester} 학기</td>
             <td>${examDetail.subjectName}</td>
             <td>${examDetail.score} 점</td>
