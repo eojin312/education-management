@@ -8,11 +8,10 @@ import hachi.education_management.exam.vo.ExamStudentApply;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
 import hachi.education_management.student.service.StudentService;
-import hachi.education_management.student.vo.StudentWithGradeClassForStudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetailAndList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,8 +46,8 @@ public class ExamController {
      */
     @RequestMapping(value = "/student/{studentNo}", method = RequestMethod.GET)
     public String studentExamApplyList(@PathVariable("studentNo") long studentNo, Model model) {
-        StudentWithGradeClassForStudentDetailAndList studentWithGradeClassForStudentDetailAndList = studentService.detail(studentNo);
-        model.addAttribute("student", studentWithGradeClassForStudentDetailAndList);
+        StudentDetailAndList studentDetailAndList = studentService.findStudentDetailByStudentNo(studentNo);
+        model.addAttribute("student", studentDetailAndList);
 
         List<ExamStudentApply> studentApplyList = examService.findExamApplyListByStudentApplyNo(studentNo);
         model.addAttribute("studentApplyList", studentApplyList);
@@ -82,7 +81,7 @@ public class ExamController {
     public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
         List<ExamDetail> examDetailList = examService.findExamDeatilByExamNo(examNo);
         model.addAttribute("examDetail", examDetailList);
-        return EXAM + "/student-exam-detail";
+        return EXAM + "/student-exam-findStudentDetailByStudentNo";
     }
 
     /**
