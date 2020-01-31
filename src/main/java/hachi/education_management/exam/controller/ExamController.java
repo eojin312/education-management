@@ -41,9 +41,7 @@ public class ExamController {
 
     /**
      * 특정 학생 시험응시 리스트 화면
-     * 학생 일련번호 파라미터
-     *
-     * @param studentNo
+     * @param studentNo 학생 일련번호 파라미터로 특정학생의 시험응시 리스트를 가져온다
      * @param model
      * @return
      */
@@ -59,11 +57,9 @@ public class ExamController {
 
     /**
      * 학년마다 등록된 시험
-     *
-     * @param gardeNo
-     * @param schoolNo
+     * @param schoolNo 학교 파라미터로 모든 시험리스트 중 특정학교로 범위를 좁힌다
+     * @param gardeNo  학년 파라미터로 특정학교 전체 시험 리스트 중 특정학년으로 범위를 좁힌다
      * @param model
-     * @return TODO : grade 를 gradeNo 로 변경
      */
     @RequestMapping(value = "/school/{schoolNo}/{gradeNo}")
     public String list(@PathVariable("gradeNo") int gardeNo, @PathVariable("schoolNo") long schoolNo, Model model) {
@@ -77,13 +73,12 @@ public class ExamController {
 
     /**
      * 특정 학생 시험 성적
-     *
+     * @param studentNo 특정 학생 일련번호로 학생이 응시한 시험 리스트를 가져올 수 있게 한다
      * @param examNo
-     * @param studentNo
      * @param model
      * @return
      */
-    @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
+    @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
     public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
         List<ExamDetail> examDetailList = examService.findExamDeatilByExamNo(examNo);
         model.addAttribute("examDetail", examDetailList);
