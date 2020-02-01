@@ -27,8 +27,8 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     }
 
     @Override
-    public School findSchoolDetailBySchoolNo(long schoolNo) {
-        return sqlSessionTemplate.selectOne("school.findSchoolDetailBySchoolNo", schoolNo);
+    public School findBySchoolNo(long schoolNo) {
+        return sqlSessionTemplate.selectOne("school.findBySchoolNo", schoolNo);
     }
 
     @Override
@@ -65,8 +65,8 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     }
 
     @Override
-    public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
-        return sqlSessionTemplate.selectOne("school.findByGradeClass", schoolNo);
+    public List<GradeClassWithSchool> findGradeClassWithSchoolBySchoolNo(long schoolNo) {
+        return sqlSessionTemplate.selectList("school.findGradeClassWithSchoolBySchoolNo", schoolNo);
     }
 
 

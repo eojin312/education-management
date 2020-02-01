@@ -2,7 +2,7 @@ package hachi.education_management.student.service;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.repository.StudentRepository;
-import hachi.education_management.student.vo.StudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetail;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,8 +39,8 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void detail() {
-        StudentDetailAndList studentDetail = studentRepository.findStudentDetailByStudentNo(4);
+    public void 특정학생의상세정보조회() {
+        StudentDetail studentDetail = studentRepository.findStudentDetailByStudentNo(4);
         Assert.assertTrue(studentDetail != null);
         Assert.assertTrue(studentDetail.getStudentNo() != null);
         Assert.assertTrue(studentDetail.getSchoolNo() != null);
@@ -48,16 +48,12 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void checkStudentAndGet() {
-    }
-
-    @Test
-    public void findByStudentNoWithGradeClass() {
-        List<StudentDetailAndList> studentDetailAndLists = studentRepository.findStudentListByGradeClass();
-        for (StudentDetailAndList studentDetailAndList : studentDetailAndLists) {
-            System.out.println(studentDetailAndList);
+    public void 학생전체리스트조회() {
+        List<StudentDetail> studentDetails = studentRepository.findStudentDetailList();
+        for (StudentDetail studentDetail : studentDetails) {
+            System.out.println(studentDetail);
         }
-        Assert.assertTrue(studentDetailAndLists.size() > 0);
-        Assert.assertTrue(studentDetailAndLists.get(0).getStudentNo() != null);
+        Assert.assertTrue(studentDetails.size() > 0);
+        Assert.assertTrue(studentDetails.get(0).getStudentNo() != null);
     }
 }

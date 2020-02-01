@@ -1,15 +1,15 @@
 package hachi.education_management.student.service;
 
 import hachi.education_management.student.model.Student;
-import hachi.education_management.student.vo.StudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetail;
 
 import java.util.List;
 
 public interface StudentService {
 
-    StudentDetailAndList findStudentDetailByStudentNo(long studentNo);
+    StudentDetail findStudentDetailByStudentNo(long studentNo);
 
-    List<StudentDetailAndList> findStudentListByGradeClass();
+    List<StudentDetail> getStudentDetailList();
 
     Student checkStudentAndGet(String id, String pwd);
 

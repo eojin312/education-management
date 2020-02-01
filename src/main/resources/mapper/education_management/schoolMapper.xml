@@ -11,7 +11,7 @@
         (
             school_name,
             school_nickname,
-            gradeNo,
+            grade,
             owner_type,
             edu_type,
             use_yn,
@@ -21,7 +21,7 @@
         (
             #{schoolName},
             #{schoolNickname},
-            #{gradeNo},
+            #{grade},
             #{ownerType},
             #{eduType},
             #{useYn},
@@ -34,7 +34,7 @@
         school_no,
         school_name ,
         school_nickname,
-        gradeNo,
+        grade,
         owner_type,
         edu_type,
         use_yn,
@@ -55,12 +55,12 @@
         </if>
     </select>
 
-    <select id="selectByNo" parameterType="long" resultType="hachi.education_management.school.model.School">
+    <select id="findBySchoolNo" parameterType="long" resultType="hachi.education_management.school.model.School">
         select
             school_no,
             school_name,
             school_nickname,
-            gradeNo,
+            grade,
             owner_type,
             edu_type,
             use_yn,
@@ -76,7 +76,7 @@
             school_no,
             school_name,
             school_nickname,
-            gradeNo,
+            grade,
             owner_type,
             edu_type,
             use_yn,
@@ -89,11 +89,11 @@
 
     <update id="modify" parameterType="hachi.education_management.school.model.School">
         UPDATE
-            `education_management`.`school`
+            education_management.school
         SET
             school_name = #{schoolName},
             school_nickname = #{schoolNickname},
-            gradeNo = #{gradeNo},
+            grade = #{grade},
             owner_type = #{ownerType},
             edu_type = #{eduType},
             area = #{area}
@@ -105,14 +105,15 @@
         update school set use_yn = 'N' where school_no = #{schoolNo}
     </update>
 
-    <select id="selectByGradeClassWithSchool" resultType="hachi.education_management.school.vo.GradeClassWithSchool"
+    <select id="findGradeClassWithSchoolBySchoolNo"
+            resultType="hachi.education_management.school.vo.GradeClassWithSchool"
             parameterType="long">
         SELECT
             s.school_no
             ,s.school_name
             ,gc.grade_class_no
             ,gc.year
-            ,gc.gradeNo
+            ,gc.grade
             ,gc.grade_class
         FROM school  s
         INNER JOIN grade_class gc ON gc.school_no = s.school_no

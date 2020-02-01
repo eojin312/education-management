@@ -17,7 +17,7 @@ public interface SchoolRepository {
     int insert(School school);
 
     //특정학교 상세정보
-    School findSchoolDetailBySchoolNo(long schoolNo);
+    School findBySchoolNo(long schoolNo);
 
     //Map 타입으로 만들어본 특정학교 상세정보
     Map<String,Object> findByNoToMap(long schoolNo);
@@ -37,6 +37,6 @@ public interface SchoolRepository {
     // 학생 학년 반 리스트를 위한 메소드
     List<GradeClassWithStudent> findStudentByGradeClassAndSchoolNo(int gradeClassNo);
 
-    List<GradeClassWithSchool> findByGradeClass(long schoolNo);
+    List<GradeClassWithSchool> findGradeClassWithSchoolBySchoolNo(long schoolNo);
 
 }

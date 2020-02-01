@@ -3,6 +3,7 @@ package hachi.education_management.school;
 import hachi.education_management.grade_class.vo.GradeClassWithStudent;
 import hachi.education_management.school.repository.SchoolRepository;
 import hachi.education_management.school.model.School;
+import hachi.education_management.school.vo.GradeClassWithSchool;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,23 +22,23 @@ public class SchoolRepositoryTest {
     @Autowired private SchoolRepository schoolRepository;
 
     @Test
-    public void findByNoToMapTest() {
+    public void 학교를map으로여러조건넣어서가지고오기() {
         Map<String, Object> resultMap = schoolRepository.findByNoToMap(1);
         String schoolName = (String) resultMap.get("school_name");
         long schoolNo = (long) resultMap.get("school_no");
 
-        Assert.assertEquals("신안중", schoolName);
+        Assert.assertEquals("부림중", schoolName);
         Assert.assertEquals(1, schoolNo);
     }
 
     @Test
-    public void selectByNoTest() {
-        School school = schoolRepository.findSchoolDetailBySchoolNo(1);
-        Assert.assertEquals("신안중", school.getSchoolName());
+    public void 학교번호로학교상세정보가지오기() {
+        School school = schoolRepository.findBySchoolNo(1);
+        Assert.assertTrue(school != null);
     }
 
     @Test
-    public void inserTest() {
+    public void 학교저장하기() {
         Long schooNo = 0L;
         String schoolName = UUID.randomUUID().toString().substring(0,10);
         String schoolNickname = UUID.randomUUID().toString().substring(0,10);
@@ -56,11 +57,18 @@ public class SchoolRepositoryTest {
     }
 
     @Test
-    public void 반일련번호로_해당반의_학생리스트를_가지고온다() {
+    public void 반일련번호로_해당반의_학생리스트를_가지고오기() {
         List<GradeClassWithStudent> gradeClassWithStudentList = schoolRepository.findStudentByGradeClassAndSchoolNo(1);
         Assert.assertTrue(gradeClassWithStudentList.size() >= 1);
         Assert.assertEquals(1, gradeClassWithStudentList.get(0).getStudentClassNumber());
         System.out.println(gradeClassWithStudentList);
+    }
+
+    @Test
+    public void 특정학교의학년반리스트가지고오기() {
+        List<GradeClassWithSchool> gradeClassWithSchools = schoolRepository.findGradeClassWithSchoolBySchoolNo(1);
+        System.out.println(gradeClassWithSchools);
+        Assert.assertTrue(gradeClassWithSchools.size() > 0);
     }
 }
 

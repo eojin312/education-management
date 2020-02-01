@@ -50,8 +50,8 @@
     LIMIT 0, 10;
     </select>
 
-    <select id="findExamDeatilByExamNo" resultType="hachi.education_management.exam.vo.ExamDetail"
-            parameterType="int">
+    <select id="findExamDeatilListByExamNoAndStduentNo" resultType="hachi.education_management.exam.vo.ExamDetail"
+            parameterType="map">
     SELECT
         s.student_no
         ,sub.subject_no

@@ -27,7 +27,7 @@
     </insert>
 
     <select id="findStudentDetailByStudentNo" parameterType="long"
-            resultType="hachi.education_management.student.vo.StudentDetailAndList">
+            resultType="hachi.education_management.student.vo.StudentDetail">
         SELECT
           s.student_no
           ,s.name
@@ -37,7 +37,7 @@
           ,gc.school_no
           ,sc.school_name
           ,gc.year
-          ,gc.gradeNo
+          ,gc.grade
           ,gc.grade_class
           ,gc.grade_class_no
         FROM
@@ -45,12 +45,11 @@
 		INNER JOIN student_grade_class sgc ON s.student_no = sgc.student_no
         INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
         INNER JOIN school sc on sc.school_no = gc.school_no
-        WHERE
-        s.student_no = #{studentNo}
+        WHERE s.student_no = #{studentNo}
     </select>
 
-    <select id="findStudentListByGradeClass"
-            resultType="hachi.education_management.student.vo.StudentDetailAndList">
+    <select id="findStudentDetailList"
+            resultType="hachi.education_management.student.vo.StudentDetail">
         SELECT
           s.student_no
           ,s.name
@@ -60,7 +59,7 @@
           ,gc.school_no
           ,sc.school_name
           ,gc.year
-          ,gc.gradeNo
+          ,gc.grade
           ,gc.grade_class
           ,gc.grade_class_no
         FROM
@@ -73,24 +72,23 @@
 
     <select id="findStudentSchool" resultType="hachi.education_management.student.vo.StudentSchool">
         SELECT
-            sc.area,
-            sc.school_name,
-            sc.school_nickname,
-            gc.year,
-            gc.gradeNo,
-            gc.class as gradeClass,
-            st.name as studentName,
-            st.sex,
-            sgc.student_number
+               sc.area,
+               sc.school_name,
+               sc.school_nickname,
+               gc.year,
+               gc.grade,
+               gc.grade_class as gradeClass,
+               st.name as studentName,
+               st.sex,
+               sgc.student_class_number
         FROM
-            student st
-                INNER JOIN
-            student_grade_class sgc ON sgc.student_no = st.student_no
-                INNER JOIN
-            grade_class gc ON gc.grade_class_no = sgc.grade_class_no
-                INNER JOIN
-            school sc ON sc.school_no = gc.school_no
-
+             student st
+               INNER JOIN
+                 student_grade_class sgc ON sgc.student_no = st.student_no
+               INNER JOIN
+                 grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+               INNER JOIN
+                 school sc ON sc.school_no = gc.school_no
     </select>
 
 </mapper>

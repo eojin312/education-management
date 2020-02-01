@@ -96,7 +96,7 @@
             ,t.classroom
             ,t.subject_no
         FROM
-          teacher
+          teacher t
         WHERE id = #{id}
         AND pwd = MD5(#{pwd})
     </select>

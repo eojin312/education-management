@@ -10,9 +10,9 @@ public class StudentSchool {
     private int gradeClass;
     private String studentName;
     private String sex;
-    private long studentNumber;
+    private Long studentNumber;
 
-    public StudentSchool(String area, String schoolName, String schoolNickname, String year, int grade, int gradeClass, String studentName, String sex, long studentNumber) {
+    public StudentSchool(String area, String schoolName, String schoolNickname, String year, int grade, int gradeClass, String studentName, String sex, Long studentNumber) {
         this.area = area;
         this.schoolName = schoolName;
         this.schoolNickname = schoolNickname;
@@ -56,7 +56,7 @@ public class StudentSchool {
         return sex;
     }
 
-    public long getStudentNumber() {
+    public Long getStudentNumber() {
         return studentNumber;
     }
 

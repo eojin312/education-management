@@ -19,7 +19,7 @@ public interface ExamRepository {
     List<ExamList> findExamListByGradeNo(int gradeNo);
 
     //특정 시험 상세 리스트
-    List<ExamDetail> findExamDeatilByExamNo(int examNo);
+    List<ExamDetail> findExamDeatilListByExamNoAndStduentNo(int examNo, long studentNo);
 
     //시험 정보 추가
     int insert(Exam exam);

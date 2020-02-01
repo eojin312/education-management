@@ -26,8 +26,8 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public List<ExamDetail> findExamDeatilByExamNo(int examNo) {
-        return examRepository.findExamDeatilByExamNo(examNo);
+    public List<ExamDetail> getExamDeatilListByExamNoAndStudentNo(int examNo, long studentNo) {
+        return examRepository.findExamDeatilListByExamNoAndStduentNo(examNo, studentNo);
     }
 
     @Override

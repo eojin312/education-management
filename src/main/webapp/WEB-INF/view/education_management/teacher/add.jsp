@@ -22,6 +22,6 @@
          <input type="submit" value="등록">
 </form>
 
-<a href="/teacher/list">리스트 보기</a>
+<a href="/teacher/list-with-subject">리스트 보기</a>
 </body>
 </html>

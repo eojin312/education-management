@@ -41,7 +41,7 @@ public class ExamRepositoryTest {
 
     @Test
     public void 특정시험상세목록테스트() {
-        List<ExamDetail> examDetails = examRepository.findExamDeatilByExamNo(1);
+        List<ExamDetail> examDetails = examRepository.findExamDeatilListByExamNoAndStduentNo(1, 1);
         for (ExamDetail examDetail : examDetails) {
             System.out.println(examDetail);
         }

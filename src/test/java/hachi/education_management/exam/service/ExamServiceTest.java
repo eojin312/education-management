@@ -47,7 +47,7 @@ public class ExamServiceTest {
 
     @Test
     public void 특정시험상세목록테스트() {
-        List<ExamDetail> examDetails = examService.findExamDeatilByExamNo(1);
+        List<ExamDetail> examDetails = examService.getExamDeatilListByExamNoAndStudentNo(1, 1);
         for (ExamDetail examDetail : examDetails) {
             System.out.println(examDetail);
         }

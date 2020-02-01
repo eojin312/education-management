@@ -3,7 +3,7 @@ package hachi.education_management.student.service;
 import hachi.education_management.grade_class.repository.StudentGradeClassRepository;
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.repository.StudentRepository;
-import hachi.education_management.student.vo.StudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,13 +21,13 @@ public class StudentServiceImpl implements StudentService {
 
 
     @Override
-    public StudentDetailAndList findStudentDetailByStudentNo(long studentNo) {
+    public StudentDetail findStudentDetailByStudentNo(long studentNo) {
         return studentRepository.findStudentDetailByStudentNo(studentNo);
     }
 
     @Override
-    public List<StudentDetailAndList> findStudentListByGradeClass() {
-        return studentRepository.findStudentListByGradeClass();
+    public List<StudentDetail> getStudentDetailList() {
+        return studentRepository.findStudentDetailList();
     }
 
     @Override

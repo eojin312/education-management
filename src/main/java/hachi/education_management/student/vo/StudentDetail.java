@@ -6,7 +6,7 @@ package hachi.education_management.student.vo;
  * ERD 다이어그램을 통해서 전면 수정한 후 만들었다.
  */
 
-public class StudentDetailAndList {
+public class StudentDetail {
     private Long studentNo;
     private String name;
     private String juminNo;
@@ -112,7 +112,7 @@ public class StudentDetailAndList {
 
     @Override
     public String toString() {
-        return "StudentDetailAndList{" +
+        return "StudentDetail{" +
                 "studentNo=" + studentNo +
                 ", name='" + name + '\'' +
                 ", juminNo='" + juminNo + '\'' +

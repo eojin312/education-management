@@ -33,7 +33,7 @@ public class SchoolServiceImpl implements SchoolService {
     //    상세보기
     @Override
     public School findByNo(long schoolNo) {
-        return schoolRepository.findSchoolDetailBySchoolNo(schoolNo);
+        return schoolRepository.findBySchoolNo(schoolNo);
     }
 
     //    리스트
@@ -79,6 +79,6 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public List<GradeClassWithSchool> findByGradeClass(long schoolNo) {
-        return schoolRepository.findByGradeClass(schoolNo);
+        return schoolRepository.findGradeClassWithSchoolBySchoolNo(schoolNo);
     }
 }

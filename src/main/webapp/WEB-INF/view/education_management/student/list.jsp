@@ -6,7 +6,7 @@
 </head>
 <body>
 <table class="table table-bordered dataTable">
-    <c:forEach var="studentDetailAndList" items="${studentList}">
+    <c:forEach var="studentDetail" items="${studentDetailList}">
         <tr>
             <th>학생이름</th>
             <th>주민번호</th>
@@ -19,15 +19,15 @@
         </tr>
         <tr>
             <td>
-                <a href="/student/${studentDetailAndList.studentNo}">${studentDetailAndList.name}</a>
+                <a href="/student/${studentDetail.studentNo}">${studentDetail.name}</a>
             </td>
-            <td>${studentDetailAndList.juminNo}</td>
-            <td>${studentDetailAndList.sex}</td>
-            <td>${studentDetailAndList.id}</td>
-            <td>${studentDetailAndList.schoolName}</td>
-            <td>${studentDetailAndList.year}</td>
-            <td>${studentDetailAndList.gradeNo}</td>
-            <td>${studentDetailAndList.gradeClass}</td>
+            <td>${studentDetail.juminNo}</td>
+            <td>${studentDetail.sex}</td>
+            <td>${studentDetail.id}</td>
+            <td>${studentDetail.schoolName}</td>
+            <td>${studentDetail.year}</td>
+            <td>${studentDetail.grade}</td>
+            <td>${studentDetail.gradeClass}</td>
         </tr>
     </c:forEach>
 </table>

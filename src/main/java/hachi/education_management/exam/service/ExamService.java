@@ -12,7 +12,7 @@ public interface ExamService {
 
     List<ExamList> findExamListByGradeNo(int gradeNo);
 
-    List<ExamDetail> findExamDeatilByExamNo(int examNo);
+    List<ExamDetail> getExamDeatilListByExamNoAndStudentNo(int examNo, long studentNo);
 
     int insert(Exam exam);
 }

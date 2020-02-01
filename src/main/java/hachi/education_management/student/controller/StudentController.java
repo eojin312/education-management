@@ -2,7 +2,7 @@ package hachi.education_management.student.controller;
 
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.service.StudentService;
-import hachi.education_management.student.vo.StudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetail;
 import hachi.education_management.student.ws.request.StudentCreateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,8 +63,8 @@ public class StudentController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-        List<StudentDetailAndList> studentList = studentService.findStudentListByGradeClass();
-        model.addAttribute("studentList", studentList);
+        List<StudentDetail> studentDetailList = studentService.getStudentDetailList();
+        model.addAttribute("studentDetailList", studentDetailList);
         return VIEW + "/list";
     }
 
@@ -76,8 +76,8 @@ public class StudentController {
      */
     @RequestMapping(value = "/{studentNo}", method = RequestMethod.GET)
     public String studentDetail(Model model, @PathVariable long studentNo) {
-        StudentDetailAndList studentDetailAndList = studentService.findStudentDetailByStudentNo(studentNo);
-        model.addAttribute("studentWithGradeClassForStudentDetailAndList", studentDetailAndList);
+        StudentDetail studentDetail = studentService.findStudentDetailByStudentNo(studentNo);
+        model.addAttribute("studentDetail", studentDetail);
         return VIEW + "/detail";
     }
 }

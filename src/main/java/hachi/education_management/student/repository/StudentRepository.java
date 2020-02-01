@@ -1,7 +1,7 @@
 package hachi.education_management.student.repository;
 
 import hachi.education_management.student.model.Student;
-import hachi.education_management.student.vo.StudentDetailAndList;
+import hachi.education_management.student.vo.StudentDetail;
 import hachi.education_management.student.vo.StudentSchool;
 
 import java.util.List;
@@ -18,10 +18,10 @@ public interface StudentRepository {
     List<StudentSchool> findStudentSchool();
 
     //학년반 기준 학생 리스트
-    List<StudentDetailAndList> findStudentListByGradeClass();
+    List<StudentDetail> findStudentDetailList();
 
     //학생 상세
-    StudentDetailAndList findStudentDetailByStudentNo(long studentNo);
+    StudentDetail findStudentDetailByStudentNo(long studentNo);
 
     Student findByIdAndPwd(String id, String pwd);
 

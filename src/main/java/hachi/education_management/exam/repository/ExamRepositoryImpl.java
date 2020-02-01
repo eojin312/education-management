@@ -8,7 +8,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 시험 repository 구현
@@ -30,8 +32,11 @@ public class ExamRepositoryImpl implements ExamRepository {
     }
 
     @Override
-    public List<ExamDetail> findExamDeatilByExamNo(int examNo) {
-        return sqlSessionTemplate.selectList("exam.findExamDeatilByExamNo", examNo);
+    public List<ExamDetail> findExamDeatilListByExamNoAndStduentNo(int examNo, long studentNo) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("examNo", examNo);
+        params.put("studentNo", studentNo);
+        return sqlSessionTemplate.selectList("exam.findExamDeatilListByExamNoAndStduentNo", params);
     }
 
     @Override

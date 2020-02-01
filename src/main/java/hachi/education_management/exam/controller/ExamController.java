@@ -7,15 +7,10 @@ import hachi.education_management.exam.vo.ExamDetail;
 import hachi.education_management.exam.vo.ExamStudentApply;
 import hachi.education_management.school.model.School;
 import hachi.education_management.school.service.SchoolService;
-import hachi.education_management.student.service.StudentService;
-import hachi.education_management.student.vo.StudentDetailAndList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -33,9 +28,6 @@ public class ExamController {
     private ExamService examService;
 
     @Autowired
-    private StudentService studentService;
-
-    @Autowired
     private SchoolService schoolService;
 
     /**
@@ -46,9 +38,6 @@ public class ExamController {
      */
     @RequestMapping(value = "/student/{studentNo}", method = RequestMethod.GET)
     public String studentExamApplyList(@PathVariable("studentNo") long studentNo, Model model) {
-        StudentDetailAndList studentDetailAndList = studentService.findStudentDetailByStudentNo(studentNo);
-        model.addAttribute("student", studentDetailAndList);
-
         List<ExamStudentApply> studentApplyList = examService.findExamApplyListByStudentApplyNo(studentNo);
         model.addAttribute("studentApplyList", studentApplyList);
         return EXAM + "/student-exam-apply-list";
@@ -78,32 +67,43 @@ public class ExamController {
      * @return
      */
     @RequestMapping(value = "/exam/{examNo}/student/{studentNo}")
-    public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
-        List<ExamDetail> examDetailList = examService.findExamDeatilByExamNo(examNo);
+    public String eachStudentExamDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
+        List<ExamDetail> examDetailList = examService.getExamDeatilListByExamNoAndStudentNo(examNo, studentNo);
         model.addAttribute("examDetail", examDetailList);
         return EXAM + "/student-exam-detail";
     }
 
     /**
-     * 시험 정보 추가
+     * 시험 등록 처리
      * @param exam
-     * @param model
      * @return
      */
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@Valid @ModelAttribute Exam exam, Model model) {
+    public String add(@Valid @ModelAttribute Exam exam) {
         int examNo = examService.insert(exam);
-        return "redirect:/exam/" + examNo;
+        // TODO 시험일련번호로 시험 상세 화면보기 화면을 만들어야한다
+        return "redirect:/exams/" + examNo;
     }
 
     /**
-     * 시험 정보 추가 화면
+     * 시험 상세 화면
+     *
+     * @param examNo
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/exam/{examNo}")
+    public String examDetail(@PathVariable("examNo") int examNo, Model model) {
+        return EXAM + "/detail";
+    }
+
+    /**
+     * 시험 정보 등록 화면
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPage() {
         return EXAM + "/add";
     }
-
 }

@@ -28,13 +28,13 @@
         <tr>
             <td>${gradeclass.gradeClassNo}</td>
             <td>${gradeclass.year}</td>
-            <td>${gradeclass.gradeNo}</td>
+            <td>${gradeclass.grade}</td>
             <td>${gradeclass.gradeClass}</td>
             <td><input type="button" value="반상세정보"
-                       onclick="window.location.href='/school/${school.schoolNo}/gradeNo-class/${gradeclass.gradeClassNo}';">
+                       onclick="window.location.href='/school/${school.schoolNo}/grade-class/${gradeclass.gradeClassNo}';">
             </td>
             <td><input type="button"
-                       onclick="window.location.href='/exams/school/${school.schoolNo}/${gradeclass.gradeNo}';"
+                       onclick="window.location.href='/exams/school/${school.schoolNo}/${gradeclass.grade}';"
                        value="응시시험확인"></td>
 
         </tr>
