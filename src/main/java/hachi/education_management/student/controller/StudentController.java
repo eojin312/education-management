@@ -78,6 +78,6 @@ public class StudentController {
     public String studentDetail(Model model, @PathVariable long studentNo) {
         StudentDetailAndList studentDetailAndList = studentService.findStudentDetailByStudentNo(studentNo);
         model.addAttribute("studentWithGradeClassForStudentDetailAndList", studentDetailAndList);
-        return VIEW + "/findStudentDetailByStudentNo";
+        return VIEW + "/detail";
     }
 }

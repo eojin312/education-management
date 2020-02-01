@@ -81,7 +81,7 @@ public class ExamController {
     public String examDetail(@PathVariable("examNo") int examNo, @PathVariable("studentNo") long studentNo, Model model) {
         List<ExamDetail> examDetailList = examService.findExamDeatilByExamNo(examNo);
         model.addAttribute("examDetail", examDetailList);
-        return EXAM + "/student-exam-findStudentDetailByStudentNo";
+        return EXAM + "/student-exam-detail";
     }
 
     /**

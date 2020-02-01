@@ -157,6 +157,6 @@ SchoolController {
 
         List<GradeClassWithStudent> gradeclassDetailList = schoolService.findGradeClassByGradeClassNoAndSchoolNo(gradeClassNo);
         model.addAttribute("gradeclassDetailList", gradeclassDetailList);
-        return VIEW_DIR_PATH + "/grade-class-findStudentDetailByStudentNo";
+        return VIEW_DIR_PATH + "/grade-class-detail";
     }
 }

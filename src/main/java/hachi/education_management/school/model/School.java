@@ -1,7 +1,5 @@
 package hachi.education_management.school.model;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -11,7 +9,6 @@ import javax.validation.constraints.Size;
 public class School {
     private Long schoolNo;
 
-    @NotNull
     @NotBlank
     @Size(min = 3, max = 10)
     private String schoolName;

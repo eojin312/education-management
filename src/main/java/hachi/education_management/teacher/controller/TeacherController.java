@@ -60,7 +60,7 @@ public class TeacherController {
     @RequestMapping(value = "/{teacherNo}", method = RequestMethod.GET)
     public String findByTeacherNo(Model model, @PathVariable int teacherNo){
         model.addAttribute("teacher", teacherService.findByTeacherNo(teacherNo));
-        return VIEW + "/findStudentDetailByStudentNo";
+        return VIEW + "/detail";
     }
 
     /**

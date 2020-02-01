@@ -23,6 +23,12 @@
         <option value="FINAL">기말</option>
         <option value="PERFORMENCE">수헹</option>
     </select>
+
+        시험종류 : <select name="subjectNo">
+        <option value="1">국어</option>
+        <option value="2">수학</option>
+        <option value="3">사회</option>
+    </select>
         <input type="submit" value="등록">
     </form>
 </div>
