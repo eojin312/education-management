@@ -16,3 +16,11 @@
   * jquery
 * 학사관리를 위한 최소한의 기능이 동작해야한다
   * 단, 선생님 관점에서 필요한 기능을 위주로 구현한다
+* 스프링MVC를 충분히 활용한다
+* 테스트코드를 충본히 작성한다
+* layered acrchitecture를 구현한다
+* DB설계를 경험한다
+
+# ERD
+* ERD상의 relation은 생략되어있고, 추후 최종 버전 작성예정
+![edu-erd-2020-02-01](https://user-images.githubusercontent.com/45488643/73585592-e6e22000-44e5-11ea-96c4-5f420f4a0c67.png)
