@@ -23,4 +23,4 @@
 
 # ERD
 * ERD상의 relation은 생략되어있고, 추후 최종 버전 작성예정
-![edu-erd-2020-02-01](https://user-images.githubusercontent.com/45488643/73585592-e6e22000-44e5-11ea-96c4-5f420f4a0c67.png)
+![eud-erd-2020-02-01-02](https://user-images.githubusercontent.com/45488643/73585625-5bb55a00-44e6-11ea-89b3-b7b4001455a3.png)
