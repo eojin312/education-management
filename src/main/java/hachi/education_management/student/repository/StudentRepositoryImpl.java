@@ -6,6 +6,7 @@ import hachi.education_management.student.vo.StudentSchool;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,5 +53,34 @@ public class StudentRepositoryImpl implements StudentRepository {
         param.put("id", id);
         param.put("pwd", pwd);
         return sqlSessionTemplate.selectOne("student.findByIdAndPwd", param);
+    }
+
+    @Override
+    public List<StudentDetail> findStudentDetailList(int start, int rows, String sord) {
+
+        /*if (sord == null || "".equals(sord)) {
+            sord = "desc";
+        }*/
+
+        /*if (StringUtils.isEmpty(sord)) {
+            sord = "desc";
+        }*/
+
+        sord = (StringUtils.isEmpty(sord)) ? "desc" : sord;
+        rows = (rows <= 0) ? 10 : rows;
+
+        Map<String, Object> param = new HashMap<>();
+        param.put("start", start);
+        param.put("rows", rows);
+        param.put("sord", sord);
+
+        return sqlSessionTemplate.selectList("student.findStudentDetailListLimit", param);
+    }
+
+
+    @Override
+    public long findStudentDetailListCount() {
+        return sqlSessionTemplate.selectOne("student.findStudentDetailListCount");
+
     }
 }

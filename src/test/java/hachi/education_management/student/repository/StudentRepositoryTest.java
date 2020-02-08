@@ -1,6 +1,7 @@
 package hachi.education_management.student.repository;
 
 import hachi.education_management.student.model.Student;
+import hachi.education_management.student.vo.StudentDetail;
 import hachi.education_management.student.vo.StudentSchool;
 import org.junit.Assert;
 import org.junit.Test;
@@ -40,5 +41,21 @@ public class StudentRepositoryTest {
             System.out.println(studentSchool);
         }
         Assert.assertTrue(studentSchoolList.size() > 0);
+    }
+
+    @Test
+    public void 학생리스트_페이징으로_가져오기() {
+        List<StudentDetail> studentDetailList = studentRepository.findStudentDetailList(10, 10, "desc");
+        Assert.assertTrue(studentDetailList.size() > 0);
+        for (StudentDetail studentDetail : studentDetailList) {
+            System.out.println(studentDetail);
+        }
+    }
+
+    @Test
+    public void 학생리스트_COUNT조회() {
+        long totalCount = studentRepository.findStudentDetailListCount();
+        Assert.assertTrue(totalCount >= 0);
+        System.out.println(totalCount);
     }
 }

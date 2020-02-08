@@ -70,6 +70,40 @@
         ORDER BY student_no desc
     </select>
 
+    <select id="findStudentDetailListLimit"
+            parameterType="map"
+            resultType="hachi.education_management.student.vo.StudentDetail">
+        SELECT
+          s.student_no
+          ,s.name
+          ,s.jumin_no
+          ,s.sex
+          ,s.id
+          ,gc.school_no
+          ,sc.school_name
+          ,gc.year
+          ,gc.grade
+          ,gc.grade_class
+          ,gc.grade_class_no
+        FROM
+          student s
+		INNER JOIN student_grade_class sgc ON s.student_no = sgc.student_no
+        INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+        INNER JOIN school sc on sc.school_no = gc.school_no
+        ORDER BY student_no ${sord}
+        LIMIT #{start}, #{rows}
+    </select>
+
+    <select id="findStudentDetailListCount" resultType="long">
+        SELECT
+          count(*) as cnt
+        FROM
+          student s
+		INNER JOIN student_grade_class sgc ON s.student_no = sgc.student_no
+        INNER JOIN grade_class gc ON gc.grade_class_no = sgc.grade_class_no
+        INNER JOIN school sc on sc.school_no = gc.school_no
+    </select>
+
     <select id="findStudentSchool" resultType="hachi.education_management.student.vo.StudentSchool">
         SELECT
                sc.area,
