@@ -1,5 +1,6 @@
 package hachi.education_management.student.controller;
 
+import hachi.education_management.common.response.ListResponse;
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.service.StudentService;
 import hachi.education_management.student.vo.StudentDetail;
@@ -7,10 +8,7 @@ import hachi.education_management.student.ws.request.StudentCreateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -68,6 +66,25 @@ public class StudentController {
         return VIEW + "/list";
     }
 
+
+    /**
+     * 학생리스트 jqgrid용
+     *
+     * @param rows 한페이지당 보여줄 행의 개수
+     * @param page 조회할 페이지 번호
+     * @param sord 정렬 기준 (asc | desc)
+     * @return
+     */
+    @RequestMapping(value = "/list.jq", method = RequestMethod.GET)
+    @ResponseBody
+    public ListResponse<StudentDetail> list4JqGrid(
+            @RequestParam(value = "rows", required = false, defaultValue = "10") int rows
+            , @RequestParam(value = "page", required = false, defaultValue = "1") int page
+            , @RequestParam(value = "sord", required = false, defaultValue = "desc") String sord
+    ) {
+        return studentService.getStudentDetailList(page, rows, sord);
+    }
+
     /**
      * 학생 리스트의 상세 조회
      * @param model
@@ -79,5 +96,11 @@ public class StudentController {
         StudentDetail studentDetail = studentService.findStudentDetailByStudentNo(studentNo);
         model.addAttribute("studentDetail", studentDetail);
         return VIEW + "/detail";
+    }
+
+    @GetMapping("/test/jsp")
+    public String testJsp() {
+
+        return VIEW + "/test";
     }
 }

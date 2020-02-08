@@ -1,5 +1,6 @@
 package hachi.education_management.student.service;
 
+import hachi.education_management.common.response.ListResponse;
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.repository.StudentRepository;
 import hachi.education_management.student.vo.StudentDetail;
@@ -55,5 +56,17 @@ public class StudentServiceTest {
         }
         Assert.assertTrue(studentDetails.size() > 0);
         Assert.assertTrue(studentDetails.get(0).getStudentNo() != null);
+    }
+
+    @Test
+    public void 학생리스트_페이징_ListReponse리턴타입() {
+        final int ROWS = 10;
+        ListResponse<StudentDetail> listResponse =
+                studentService.getStudentDetailList(1, ROWS, "DESC");
+        Assert.assertTrue(listResponse.getTotalCount() > 0);
+        Assert.assertTrue(listResponse.getLastPageNo() > 0);
+        Assert.assertTrue(listResponse.getList().size() == ROWS);
+
+        System.out.println(listResponse);
     }
 }

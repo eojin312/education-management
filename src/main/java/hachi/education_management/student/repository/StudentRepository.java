@@ -26,4 +26,7 @@ public interface StudentRepository {
     Student findByIdAndPwd(String id, String pwd);
 
 
+    List<StudentDetail> findStudentDetailList(int start, int rows, String sord);
+
+    long findStudentDetailListCount();
 }

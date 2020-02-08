@@ -1,5 +1,6 @@
 package hachi.education_management.student.service;
 
+import hachi.education_management.common.response.ListResponse;
 import hachi.education_management.student.model.Student;
 import hachi.education_management.student.vo.StudentDetail;
 
@@ -14,6 +15,8 @@ public interface StudentService {
     Student checkStudentAndGet(String id, String pwd);
 
     long createStudent(Student student, long gradeClassNo);
+
+    abstract ListResponse<StudentDetail> getStudentDetailList(int page, int rows, String sord);
 }
 
 

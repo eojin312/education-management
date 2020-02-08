@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/static/bootstrap/theme/sbadmin2/sb-admin-2.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
-
+    <script src="/static/bootstrap/theme/sbadmin2/jquery.js"></script>
     <decorator:head/>
 </head>
 <body id="page-top">
@@ -370,7 +370,7 @@
 </div>
 
 <!-- 공통 js 들 -->
-<script src="/static/bootstrap/theme/sbadmin2/jquery.js"></script>
+
 <script src="/static/bootstrap/theme/sbadmin2/bootstrap.bundle.js"></script>
 <script src="/static/bootstrap/theme/sbadmin2/jquery.easing.min.js"></script>
 <script src="/static/bootstrap/theme/sbadmin2/sb-admin-2.js"></script>
