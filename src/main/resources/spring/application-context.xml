@@ -11,7 +11,7 @@
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/alphaleeremind?useSSL=false" />
         <property name="username" value="root" />
-        <property name="password" value="dldjwls02" />
+        <property name="password" value="Hachi0218@"/>
         <property name="initialSize" value="10" />
         <property name="validationQuery" value="select 1" />
     </bean>
@@ -20,7 +20,7 @@
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/education_management?useSSL=false" />
         <property name="username" value="root" />
-        <property name="password" value="dldjwls02" />
+        <property name="password" value="Hachi0218@"/>
         <property name="initialSize" value="10" />
         <property name="validationQuery" value="select 1" />
     </bean>

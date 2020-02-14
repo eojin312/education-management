@@ -65,7 +65,7 @@ SchoolController {
     @RequestMapping(value = "/{schoolNo}", method = RequestMethod.GET)
     public String detail(Model model, @PathVariable long schoolNo) {
         model.addAttribute("school", schoolService.findByNo(schoolNo));
-        return VIEW_DIR_PATH + "/findStudentDetailByStudentNo";
+        return VIEW_DIR_PATH + "/detail";
     }
 
     /**

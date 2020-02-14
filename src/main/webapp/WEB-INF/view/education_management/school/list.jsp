@@ -13,13 +13,13 @@
 </div>
 
 <table class="table table-bordered dataTable">
-    <c:forEach var="school" items="${schoolList}">
         <tr>
             <th>학교이름</th>
             <th>학교닉네임</th>
             <th>초중고</th>
             <th>지역</th>
         </tr>
+    <c:forEach var="school" items="${schoolList}">
         <tr>
             <td><a href="/school/${school.schoolNo}/grade-class">${school.schoolName}</a></td>
             <td>${school.schoolNickname}</td>

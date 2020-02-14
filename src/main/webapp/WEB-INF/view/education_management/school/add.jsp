@@ -9,12 +9,9 @@
     <form action="/school/add" method="post" id="school_form" name="school_form">
         학교명 : <input name="schoolName" id="schoolName" type="text"> <br>
         학교아이디 : <input name="schoolNickname" id="schoolNickname" type="text"> <br>
-        초중고 : <select name="gradeNo" id="gradeNo">
-        <option value="H">고등학교</option>
-        <option value="M">중학교</option>
-        <option value="E">초등학교</option>
-    </select>
-
+        초중고 : <input type="radio" name="grade" value="H">고등학교
+        <input type="radio" name="grade" value="M">중학교
+        <input type="radio" name="grade" value="E">초등학교
         <br>
         국립/사립 : <input name="ownerType" type="radio" value="N">국립
                   <input name="ownerType" type="radio" value="P">사립
