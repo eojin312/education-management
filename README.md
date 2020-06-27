@@ -23,6 +23,16 @@
 
 SpringBoot 를 들어가기 전에 수작업으로 jsp 와 mybatis 를 사용하여 framework 의 과정을 이해했습니다
 
+# Spring
+**package구조**
+layered acrchitecture 를 지켜서
+- controller
+- service
+- repository
+로 나눴습니다.
+
+
+
 # ERD
 * ERD상의 relation은 생략되어있고, 추후 최종 버전 작성예정
 
