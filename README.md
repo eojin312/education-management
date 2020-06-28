@@ -13,9 +13,8 @@
   - maven
   - tomcat 7
   - jsp
-   - bootstrap
-   - sitemesh
-  - sitemesh
+    - bootstrap
+    - sitemesh
   - mybatis
   - sitemesh
   - jquery
