@@ -24,7 +24,8 @@ public class LoginController {
     private TeacherService teacherService;
 
     /**
-     * 로그인 화면처리
+     * 선생님용 로그인 화면처리
+     *
      * @param loginUser 유저가 작성한 아이디와 비밀번호 데이터를 담기 위한 파라미터
      * @param model
      * @param request

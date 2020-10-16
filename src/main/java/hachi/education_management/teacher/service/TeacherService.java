@@ -20,7 +20,7 @@ public interface TeacherService {
     //선생님과 과목 리스트
     List<TeacherSubject> getTeacherListWithSubject();
 
-    //id 와 pwd 의 정보를 얻는 메소드
+    //선생님의 id 와 pwd 의 정보를 얻는 메소드
     Teacher checkTeacherAndGet(String id, String pwd) throws NoSuchTeacherException;
 
     List<Teacher> findTeacherListWithSubjectAggregation();

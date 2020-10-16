@@ -1,7 +1,7 @@
 package hachi.education_management.common.request;
 
 /**
- * 첫 페이징(시범단계)
+ * 첫 페이징(사용하지않는다)
  */
 public class Paging {
     private int pageCountPerBlock; // 페이지 구간 내 페이지 개수
@@ -23,7 +23,6 @@ public class Paging {
         return ((this.getBlockNo(pageNo)) * this.pageCountPerBlock) + 1;
     }
 
-    //
     public int getLastPageNo() {
         double temp = (double) this.totalCount / (double) this.pageCountPerBlock;
         return (int) Math.ceil(temp);

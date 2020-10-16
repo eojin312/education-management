@@ -2,6 +2,11 @@ package hachi.education_management.common.response;
 
 import java.util.List;
 
+/**
+ * 페이징 응답값을 내려주는 모델
+ *
+ * @param <T>
+ */
 public class ListResponse<T> {
     private long totalCount;
     private int lastPageNo;

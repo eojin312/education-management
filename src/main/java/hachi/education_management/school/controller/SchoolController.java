@@ -19,9 +19,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/school")
-public class
-
-SchoolController {
+public class SchoolController {
 
     public static final String VIEW_DIR_PATH = "/education_management/school";
 
@@ -30,6 +28,7 @@ SchoolController {
 
     /**
      * 학교 등록 화면
+     *
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)

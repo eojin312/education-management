@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * 시험 컨트롤러
+ * 시험정보 관련 컨트롤러
  */
 @Controller
 @RequestMapping(value = "/exams")
