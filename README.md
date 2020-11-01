@@ -17,7 +17,6 @@
     - sitemesh
   - mybatis
   - sitemesh
-  - jquery
 # 목표  
 - 학사관리를 위한 최소한의 기능이 동작해야한다
   - 단, 선생님 관점에서 필요한 기능을 위주로 구현한다
